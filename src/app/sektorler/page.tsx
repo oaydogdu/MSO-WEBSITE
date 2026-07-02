@@ -73,7 +73,7 @@ export default function SektorlerPage() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection>
-            <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>MSO Denetim</p>
+            <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>Deneyim Alanlarımız</p>
             <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6">Hizmet Verdiğimiz Sektörler</h1>
             <p className="text-white/60 text-xl max-w-2xl leading-relaxed">
               29&apos;dan fazla alt sektörde edindiğimiz derin sektörel bilgi ve deneyimle işletmenizin ihtiyaçlarını tam olarak anlıyoruz.

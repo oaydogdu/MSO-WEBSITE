@@ -1,4 +1,6 @@
-import { Award, BookOpen, Users, Landmark, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Award, BookOpen, ShieldCheck, Landmark, ExternalLink, ArrowRight } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const books = [
@@ -16,7 +18,7 @@ const books = [
     subtitle: "M. Sami Özeren · Eren Özeren Özgül",
     publisher: "Beta Yayınevi",
     sublabel: "Gelişim İçin Girişim",
-    desc: "Girişimcilik ruhunu akademik bir perspektifle harmanlayan bu eser, hem teorik bilgi hem de pratik uygulama örnekleriyle okuyucuya kapsamlı bir rehber sunmaktadır.",
+    desc: "Girişimcilik, günlük hayatta sıkça kullanılan ama nadiren gerçek anlamıyla ele alınan bir kavramdır. GİRİŞ(İM), bu kavramı yalnızca cesaret ya da fikir sahibi olmakla sınırlamaz; matematikten psikolojiye, sosyolojiden ekonomiye uzanan disiplinler arası bir bakışla girişimcinin sahip olması gereken istek, ideal, ataklık ve amaca yönelme niteliklerini bir araya getirir. Bu kitap, girişimciliği hazır bir formül olarak sunmak yerine, girişim ruhunu besleyen düşünce sistematiğini ve bu ruhu harekete geçiren araç ve yöntemleri anlamlandırır.",
     link: "https://www.kitapyurdu.com/kitap/girisim-gelisim-icin-girisim/368485.html?manufacturer_id=180829",
     color: "#3a1a0a",
     accent: "#8b5a2b",
@@ -43,7 +45,7 @@ export default function MirasVizyonPage() {
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 60% 50%, rgba(201,168,76,0.07) 0%, transparent 60%)" }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <AnimatedSection>
-            <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>MSO Denetim</p>
+            <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>Yarım Asırlık Birikim</p>
             <h1 className="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               Miras<br />
               <span style={{ color: "var(--gold)" }}>&amp; Vizyon</span>
@@ -94,19 +96,19 @@ export default function MirasVizyonPage() {
 
               <div className="space-y-6 text-gray-500 leading-relaxed">
                 <p>
-                  Galatasaray İktisat ve İşletmecilik Yüksek Okulu&apos;ndan mezun olan Mehmet Sami Özeren, 1977-1984 yılları arasında <strong style={{ color: "var(--navy)" }}>Holantse Bank Uni-NV (ABN-AMRO Bank)</strong> İstanbul Merkez Şubesi&apos;nde İç Denetim Sorumlusu olarak görev yapmıştır. Bankacılık sektöründeki bu köklü deneyim, onun finansal denetim ve yönetim konusundaki uzmanlığının temelini oluşturmuştur.
+                  1953 yılında İstanbul Eminönü&apos;nde dünyaya gelen Mehmet Sami Özeren, yükseköğrenimini Galatasaray İktisat ve İşletmecilik Yüksek Okulu&apos;nda tamamlamıştır. 1976&apos;daki mezuniyetinin ardından <strong style={{ color: "var(--navy)" }}>Holantse Bank Uni-NV (ABN-AMRO Bank)</strong> İstanbul Merkez Şubesi&apos;nde İç Denetim Sorumlusu olarak göreve başlamış, yaklaşık yedi yıl süren bu bankacılık deneyimi onun finansal denetim ve yönetim konusundaki uzmanlığının temelini oluşturmuştur.
                 </p>
                 <p>
-                  1984 yılından itibaren serbest muhasebeci ve mali müşavirlik alanında kariyerini sürdüren Özeren, mesleğine olan derin bağlılığı ve etik duruşuyla sektörde saygın bir yer edinmiştir.
+                  Banka yıllarında girişimcilik ruhundan da ödün vermeyen Özeren, aynı dönemde bir reklam şirketi kurarak başarılı işlere imza atmıştır. Yine bu yıllarda, 1971 yılında kurulmuş ancak sınırlı bir müşteri portföyüyle faaliyet gösteren bugünkü şirketimizi devralmıştır. Kendi ifadesiyle amacı başlangıçta muhasebe değil daha çok müşavirlik yapmaktı; zamanla ve bir nevi zorunluluktan bu alana yönelerek MSO&apos;nun bugünkü temelini atmıştır — <strong style={{ color: "var(--navy)" }}>şirketimizin 1971 kuruluş tarihi de bu devralma hikâyesinden gelmektedir.</strong>
                 </p>
                 <p>
-                  Yıllar içinde yetiştirdiği çok sayıda öğrenci ve meslektaş, bugün Türkiye&apos;nin önde gelen şirketlerinde <strong style={{ color: "var(--navy)" }}>CEO, CFO ve üst düzey yönetici</strong> olarak görev yapmaktadır. Bu durum, onun mesleki mirasının ve eğitimci kimliğinin en somut göstergesidir.
+                  1984 yılında bankacılık kariyerini noktalayıp kendini tamamen Serbest Muhasebeci ve Mali Müşavirliğe adayan Özeren, yıllar içinde yetiştirdiği çok sayıda öğrenci ve meslektaşıyla da iz bırakmıştır. Bugün bu isimlerin birçoğu Türkiye&apos;nin önde gelen şirketlerinde <strong style={{ color: "var(--navy)" }}>CEO, CFO ve üst düzey yönetici</strong> olarak görev yapmaktadır — mesleki mirasının ve eğitimci kimliğinin en somut göstergesi.
                 </p>
               </div>
 
               <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {[
-                  { icon: Users, label: "Yetiştirilen Nesil", val: "CEO & CFO'lar" },
+                  { icon: ShieldCheck, label: "Sertifika & Yetki Belgesi", val: "4" },
                   { icon: BookOpen, label: "Yayınlanan Eser", val: "2 Kitap & Makaleler" },
                   { icon: Award, label: "Mesleki Deneyim", val: "40+ Yıl" },
                 ].map(item => (
@@ -186,6 +188,37 @@ export default function MirasVizyonPage() {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Library */}
+      <section className="relative h-[420px] md:h-[560px] flex items-end overflow-hidden">
+        <Image
+          src="/miras/kutuphane.jpg"
+          alt="Mehmet Sami Özeren Kütüphanesi"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(0deg, rgba(6,14,28,0.94) 0%, rgba(6,14,28,0.6) 45%, rgba(6,14,28,0.2) 100%)" }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
+          <AnimatedSection>
+            <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>Kişisel Koleksiyon</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6">Mehmet Sami Özeren Kütüphanesi</h2>
+            <p className="text-white/70 text-lg max-w-2xl leading-relaxed mb-8">
+              Yılların birikimini bir araya getiren binlerce ciltlik kişisel kütüphanesi, ofisimizde ziyaretçilerimizi ağırlamaya devam ediyor.
+            </p>
+            <Link
+              href="/iletisim"
+              className="inline-flex items-center gap-3 px-6 py-3 text-xs font-bold tracking-widest uppercase"
+              style={{ background: "var(--gold)", color: "var(--navy)" }}
+            >
+              Bizi Ziyaret Edin <ArrowRight size={14} />
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
     </>

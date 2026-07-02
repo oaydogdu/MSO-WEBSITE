@@ -56,7 +56,7 @@ export default function HizmetlerimizPage() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection>
-            <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>MSO Denetim</p>
+            <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>Uzmanlık Alanlarımız</p>
             <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6">Hizmetlerimiz</h1>
             <p className="text-white/60 text-xl max-w-2xl leading-relaxed">
               50 yılı aşkın deneyimimizle sunduğumuz kapsamlı finansal ve danışmanlık hizmetleri ile işletmenizin yanındayız.

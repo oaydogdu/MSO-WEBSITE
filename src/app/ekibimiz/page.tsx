@@ -6,6 +6,7 @@ const managers = [
     name: "Mehmet Sami Özeren",
     title: "Kurucu Ortak",
     expertise: "Mali Müşavir & Bağımsız Denetçi · Yönetim Muhasebesi Uzmanı",
+    bio: "1953 yılında İstanbul Eminönü'nde dünyaya gelen Mehmet Sami Özeren, yükseköğrenimini Galatasaray İktisat ve İşletmecilik Yüksek Okulu'nda tamamlamıştır. 1976'da başladığı Hollantse Bank Uni-NV (ABN-AMRO Bank) kariyeri sırasında bir reklam şirketi kurmuş, aynı dönemde 1971 yılında kurulmuş bugünkü şirketimizi devralarak mesleki yolculuğuna yön vermiştir. 1984'te kendini tamamen Serbest Muhasebeci Mali Müşavirliğe adayan Özeren, 2010 yılında İstanbul Kültür Başkenti Ajansı'nda Artistik Komite Koordinatörü olarak görev almıştır.",
     badges: ["Kurucu Ortak", "Bağımsız Denetçi", "Yönetim Muhasebesi Uzmanı"],
   },
   {
@@ -43,7 +44,7 @@ export default function EkibimizPage() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection>
-            <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>MSO Denetim</p>
+            <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>Profesyonel Kadromuz</p>
             <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6">Ekibimiz</h1>
             <p className="text-white/60 text-xl max-w-2xl leading-relaxed">
               11 kişilik uzman kadromuz ile işletmenizin her ihtiyacında profesyonel destek sunuyoruz.

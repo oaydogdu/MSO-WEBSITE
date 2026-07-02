@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ExternalLink } from "lucide-react";
 
 const navLinks = [
@@ -14,36 +15,28 @@ const navLinks = [
 
 function MSOLogo() {
   return (
-    <Link href="/" className="flex items-center gap-3 group">
-      {/* Icon Mark */}
-      <div className="relative w-10 h-10 shrink-0">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-          {/* Top-left arrow */}
-          <path d="M18 6L6 6L6 18" stroke="#4A9FD4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M6 6L14 14" stroke="#4A9FD4" strokeWidth="2.5" strokeLinecap="round"/>
-          {/* Top-right arrow */}
-          <path d="M22 6L34 6L34 18" stroke="#4A9FD4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M34 6L26 14" stroke="#4A9FD4" strokeWidth="2.5" strokeLinecap="round"/>
-          {/* Bottom-left arrow */}
-          <path d="M6 22L6 34L18 34" stroke="#4A9FD4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M6 34L14 26" stroke="#4A9FD4" strokeWidth="2.5" strokeLinecap="round"/>
-          {/* Bottom-right arrow */}
-          <path d="M34 22L34 34L22 34" stroke="#4A9FD4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M34 34L26 26" stroke="#4A9FD4" strokeWidth="2.5" strokeLinecap="round"/>
-        </svg>
-      </div>
-      {/* Text */}
-      <div className="flex flex-col leading-none">
+    <Link href="/" className="flex flex-col shrink-0 group translate-y-[4px]">
+      {/* Orijinal lockup düzeni: 3 oklu ikon + M harfi ikonun boş (sağ alt) çeyreğinde */}
+      <div className="flex items-end">
+        <Image
+          src="/logo-mark.png"
+          alt="MSO logo"
+          width={48}
+          height={49}
+          className="w-12 h-12 shrink-0 object-contain"
+          priority
+          unoptimized
+        />
         <span
-          className="text-2xl font-black tracking-[0.12em] transition-colors"
-          style={{ color: "var(--gold)", letterSpacing: "0.15em" }}
+          className="font-black leading-none -ml-6 translate-y-[6px]"
+          style={{ color: "var(--gold)", fontSize: "31px", letterSpacing: "0.02em" }}
         >
           MSO
         </span>
-        <span className="text-[9px] tracking-[0.25em] text-white/50 uppercase mt-0.5">
-          Denetim &amp; S.M.M.M
-        </span>
       </div>
+      <span className="text-[10px] tracking-[0.22em] text-white/50 uppercase mt-1.5">
+        Denetim &amp; S.M.M.M
+      </span>
     </Link>
   );
 }
@@ -68,7 +61,7 @@ export default function Navbar() {
         boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.3)" : "none",
       }}
     >
-      <div className="max-w-[1400px] mx-auto px-8 flex items-center justify-between h-22" style={{ height: "80px" }}>
+      <div className="max-w-[1400px] mx-auto px-8 flex items-center justify-between" style={{ height: "88px" }}>
         <MSOLogo />
 
         <nav className="hidden lg:flex items-center gap-10">

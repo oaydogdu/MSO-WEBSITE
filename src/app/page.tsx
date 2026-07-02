@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ExternalLink, Shield, TrendingUp, BookOpen, Scale, BarChart3, Users, Award, MapPin } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import CountUp from "@/components/CountUp";
@@ -290,6 +291,39 @@ export default function HomePage() {
                 +90 212 533 69 69
               </a>
             </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ─── LIBRARY ─── */}
+      <section className="relative h-[380px] md:h-[460px] flex items-end overflow-hidden">
+        <Image
+          src="/miras/kutuphane.jpg"
+          alt="Mehmet Sami Özeren Kütüphanesi"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(0deg, rgba(6,14,28,0.95) 0%, rgba(6,14,28,0.55) 50%, rgba(6,14,28,0.15) 100%)" }}
+        />
+        <div className="relative z-10 max-w-[1400px] mx-auto px-8 pb-14 w-full">
+          <AnimatedSection>
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "var(--gold)" }}>Kurucu Mirası</p>
+            <h2 className="font-display font-bold text-white mb-5" style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}>
+              Mehmet Sami Özeren Kütüphanesi
+            </h2>
+            <p className="text-white/60 leading-relaxed mb-8 max-w-xl">
+              Kurucumuzun yıllar içinde bir araya getirdiği kişisel kütüphanesi, MSO&apos;nun bilgiye ve deneyime verdiği değerin en somut yansımasıdır.
+            </p>
+            <Link
+              href="/miras-vizyon"
+              className="inline-flex items-center gap-3 text-xs font-bold tracking-widest uppercase"
+              style={{ color: "var(--gold)" }}
+            >
+              Miras &amp; Vizyonu Keşfedin <ArrowRight size={12} />
+            </Link>
           </AnimatedSection>
         </div>
       </section>

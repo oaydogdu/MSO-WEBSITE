@@ -22,6 +22,7 @@ body {
 
 .font-display {
   font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  font-variant-numeric: lining-nums;
 }
 
 .gold-line::after {

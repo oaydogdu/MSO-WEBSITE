@@ -6,8 +6,9 @@
 
 ## Durum: 7 sayfa da içerikle dolu, temel marka kimliği oturmuş
 
-Build/lint/type-check temiz. Henüz **git'e commit edilmedi** (sadece "Initial commit
-from Create Next App" var, tüm gerçek içerik unstaged/untracked durumda).
+Build/lint/type-check temiz. İlk gerçek commit atıldı (`6fa7a56`), o commit'ten
+sonra epey değişiklik oldu ve henüz commit'lenmedi — bkz. madde 9-12. Sormadan
+commit ATMA.
 
 ## Yapı
 - Next.js 16 (App Router, Turbopack), Tailwind CSS 4, TypeScript, Framer Motion
@@ -41,7 +42,18 @@ from Create Next App" var, tüm gerçek içerik unstaged/untracked durumda).
    - **Son karar: kullanıcı "ilk haline getir" dedi → `Navbar.tsx` ve `Footer.tsx`
      ORİJİNAL haline döndürüldü** (4 köşeden merkeze mavi ok + `text-2xl font-black`
      gold "MSO" + `text-[9px]` gri alt yazı, footer'da ikon yok sade metin).
-     **Logo konusu şu an kapalı, kullanıcı memnun, tekrar dokunma.**
+   - **ÇÖZÜLDÜ (2026-07-02):** Kullanıcı gerçek logo dosyasını verdi
+     (`public/logo.png`, siyah zeminli kare lockup). SVG ile yeniden çizmek
+     yerine gerçek görselden 3 oklu mavi ikon renk maskesiyle ayıklandı
+     (`public/logo-mark.png`, şeffaf zemin) ve Navbar'da eski 4 oklu SVG'nin
+     yerine kondu; gold "MSO" + alt yazı HTML olarak kaldı (kullanıcı bu hibrit
+     yaklaşımı seçti). Not: `next/image` optimizer bu dosyada takıldığı için
+     ikonda `unoptimized` prop'u var — kaldırma. Footer'a dokunulmadı.
+   - **Son rötuş (2026-07-02):** Kullanıcı isteğiyle orijinal lockup düzeni
+     kuruldu: "M" harfi ikonun boş sağ alt çeyreğine oturuyor (`-ml-6` +
+     `translate-y-[6px]`, ikon 48px, MSO 31px). Piksel ölçümüyle hizalama
+     doğrulandı. MSO rengi ile başlık gold'u aynı (`--gold`), fark sadece font
+     algısı — kullanıcı bu haliyle onayladı. **Logo konusu kapalı.**
 4. **Diğer sayfalara Cormorant Garamond + scroll animasyonu yayıldı.** Ana sayfada
    zaten kurulu olan `font-display` (başlıklarda) ve `AnimatedSection` deseni,
    Hizmetlerimiz/Sektörler/Hakkımızda/Ekibimiz/Miras & Vizyon/İletişim sayfalarının
@@ -61,6 +73,52 @@ from Create Next App" var, tüm gerçek içerik unstaged/untracked durumda).
 6. **İletişim sayfası (2026-07-02).** "Mesaj Gönderin" formu kaldırıldı, yerine
    Google Maps embed (iframe, `output=embed`) konuldu; alttaki harita
    placeholder'ı da silindi. Konum kullanıcı tarafından doğrulandı.
+7. **Ekip fotoğrafları (2026-07-02).** `public/team/`'e 8 kişinin fotoğrafı
+   yerleşti (800px'e küçültülmüş JPEG'ler; 4MB'lık PNG orijinaller scratchpad'e
+   yedeklendi, repo'da yok). Ekibimiz sayfasında fotoğraflı yuvarlak avatar
+   (gold çerçeve, `object-cover object-top`), fotoğrafı olmayanlarda harf
+   avatarı fallback'i. Mert Aydoğdu unvanı "IT Sorumlusu" yapıldı.
+   Fotoğrafı olmayanlar: Ali Pınar (gelecek), Ali Aydoğdu, Mehmet Sami Özeren.
+8. **İlk gerçek commit atıldı (2026-07-02, kullanıcı onayıyla):** `6fa7a56`
+   "MSO kurumsal sitesinin ilk tam sürümü". Uzak depo (GitHub) YOK — kullanıcı
+   "şimdilik gerek yok" dedi, deployment aşamasında düşünülecek.
+9. **Mehmet Sami Özeren biyografisi zenginleştirildi (2026-07-02).** Kullanıcıdan
+   gelen ek bilgilerle (1953 İstanbul Eminönü doğumu, banka yıllarında kurduğu
+   reklam şirketi, 1971'de kurulmuş şirketi devralma hikâyesi) hem
+   `ekibimiz/page.tsx`'teki kart biyografisi hem `miras-vizyon/page.tsx`'teki
+   "Bir Öncünün Hikayesi" bölümü güncellendi. **Önemli:** Miras & Vizyon sayfası
+   zaten Mehmet Sami Özeren'in "onur sayfası" işlevini görüyor — kaynak dosyada
+   ayrı bir "Onur Sayfası" planlanmış gibi görünse de tekrar sorma/yeni sayfa
+   önerme, bu sayfa o iş için var. GİRİŞ(İM) kitabının açıklaması da (kullanıcının
+   gönderdiği önsöz fotoğraflarından) yazılıp hem `mso_website_bilgiler.md` hem
+   `miras-vizyon/page.tsx`'e işlendi.
+10. **Miras & Vizyon stat kartı düzeltildi.** "CEO & CFO'lar" gibi sayısal
+    olmayan bir "stat" saçma duruyordu → kullanıcı onayıyla "4 — Sertifika &
+    Yetki Belgesi" ile değiştirildi (gerçek sayıya dayanıyor).
+11. **Kütüphane bölümü (2026-07-02).** Ofisteki Mehmet Sami Özeren Kütüphanesi
+    fotoğrafı `public/miras/kutuphane.jpg` — kullanıcı HEIC'i yanlış uzantıyla
+    (`.jpeg`) kaydetmişti, EXIF rotasyonu da kayboldu; `sips` ile format düzeltilip
+    90° rotasyon manuel uygulandı, sonra optimize edildi. Hem Miras & Vizyon
+    sayfasının sonuna (büyük, `h-[560px]`, "Bizi Ziyaret Edin" → `/iletisim`) hem
+    ana sayfaya İletişim CTA'sının altına (kompakt, `h-[460px]`, "Miras & Vizyonu
+    Keşfedin" → `/miras-vizyon`) eklendi. Aynı görsel, iki farklı boyut/CTA.
+12. **Site geneli font/rakam denetimi (2026-07-02).** Cormorant Garamond'un eski
+    tip "1" karakteri yan yana gelince (`11`) Roma rakamı "II" gibi görünüyordu —
+    hem Stats bölümünde (ana sayfa, Hakkımızda) hem `sektorler` sayfasındaki
+    11 numaralı sektörde. **Kalıcı çözüm:** `globals.css`'teki `.font-display`
+    sınıfına `font-variant-numeric: lining-nums` eklendi — tek satırla site
+    genelinde düzeldi, tek tek yer değiştirmeye gerek kalmadı. Ayrıca
+    `CountUp.tsx` sabit "step" mantığından `requestAnimationFrame` tabanlı zaman
+    ilerlemesine geçirildi (büyük sayılar — örn. 1971 — artık küçük sayılarla
+    aynı sürede bitiyor, öncesinde daha uzun sürüyordu).
+
+## Ortam notu: macOS Masaüstü izni (2026-07-02'de yaşandı)
+Session ortasında macOS, shell + dosya araçlarının Desktop erişimini kesti
+(EPERM). Çözüm: Sistem Ayarları → Gizlilik → Dosyalar ve Klasörler → her iki
+Claude girdisinde Desktop iznini aç + **uygulamayı tamamen yeniden başlat**
+(izin ancak yeniden başlatınca etkinleşiyor). Erişim kesikken dev server'ı
+`preview_start` aracı ayakta tutabiliyor (kendi izin bağlamı var) ve
+`public/` dosya varlığı dev server'a HTTP HEAD atılarak keşfedilebiliyor.
 
 ## Açık / bekleyen konular (2026-07-02 itibarıyla kullanıcıyla netleşti)
 - **KULLANICIDAN BEKLENEN — TEKRAR SOR:** E-Mükellef gerçek giriş URL'si.
@@ -68,10 +126,11 @@ from Create Next App" var, tüm gerçek içerik unstaged/untracked durumda).
   session'da uygun bir anda hatırlat. Şu an placeholder: `https://www.emukellef.com.tr`.
 - **Hero video** — kullanıcı kararıyla beklemede ("biraz daha bekletelim",
   2026-07-02). Higgsfield hesap sorunu + prompt taslağı bu dosyanın altında.
-- **Commit** — kullanıcı 2026-07-02'de "projeyi nereye commit edeceğiz?" diye
-  sordu; git'in yerel çalıştığı, istenirse GitHub'a push edilebileceği anlatıldı.
-  Henüz karar/onay yok — sormadan commit ATMA.
+- **Ali Pınar fotoğrafı** — kullanıcı verecek; gelince `public/team/`'e koyup
+  `ekibimiz/page.tsx`'te `photo` alanını eklemek yeterli (fallback hazır).
 - **Canlıya alma (deployment)** — kullanıcı kararı: EN SON yapılacak.
+- Commit'ler artık serbest değil: ilk commit kullanıcı onayıyla atıldı ama
+  sonraki commit'ler için yine sormadan ATMA.
 
 ## Kapanan konular
 - ~~İçerik & Yayınlar~~ — kullanıcı makale/duyuru paylaşmayı düşünmüyor
