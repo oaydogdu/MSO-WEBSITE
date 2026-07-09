@@ -7,20 +7,22 @@
 ## Durum: İçerik ve responsive işi TAMAMLANDI — sıradaki adım domain + deployment
 
 Build/lint/type-check temiz, `npm run build` de dahil (2026-07-09'da tam bir
-production build denemesi yapıldı, sorunsuz). İki commit atıldı (`6fa7a56`,
-`cb538fa`), ikinci commit'ten sonra da epey değişiklik oldu (madde 15-22:
-Battal logo, sektörler hover fix, ekip sırası + Ali Pınar taşıma,
-**Yayınlarımız özelliği**, 3 makale, Miras&Vizyon başlık birleştirme, geniş
-çaplı mobil responsive geçişi, Ali Aydoğdu + Ali Pınar fotoğraf/bio
-tamamlandı, **deployment öncesi tam QA turu (masaüstü+mobil, 9 sayfa)
-tamamlandı — hata bulunmadı**) ve henüz commit'lenmedi (`git status` ile çok
-sayıda değişmiş/yeni dosya var). **Sormadan commit ATMA** — yeni session'da
-kullanıcı isterse bir commit önerisi sunulabilir ama otomatik atılmamalı.
+production build denemesi yapıldı, sorunsuz). **2026-07-09'da kullanıcı
+onayıyla dördüncü commit atıldı (`d3a6639`) — madde 9-22'deki tüm birikmiş
+değişiklikler (Yayınlarımız özelliği, mobil responsive geçişi, ekip
+fotoğrafları, SEO dosyaları vb., 36 dosya) tek commit'te kaydedildi.**
+**Ayrıca kullanıcı GitHub'da yeni bir uzak depo açtı
+(`https://github.com/oaydogdu/MSO-WEBSITE`), `origin` olarak eklendi ve
+`main` branch push edildi — repo artık GitHub'da senkronize, `git status`
+temiz.** Bundan sonraki commit'ler için de **sormadan commit/push ATMA**
+kuralı geçerli.
 
 **Yeni session buradan devam etmeli:** Site içerik/tasarım/QA tarafı bitti,
-kod tabanını baştan taramaya gerek yok. **Sıradaki ve tek açık konu: domain
-satın alma (`mso.com.tr` / `msosmmm.com.tr` öneriliyor, `isimtescil.net`
-üzerinden) ve ardından Vercel'e deployment** — bkz. madde 22 sonu.
+kod tabanını baştan taramaya gerek yok, GitHub'a da push edildi.
+**Sıradaki ve tek açık konu: domain satın alma (`mso.com.tr` /
+`msosmmm.com.tr` öneriliyor, `isimtescil.net` üzerinden) ve ardından
+Vercel'e deployment (artık bir GitHub reposu olduğu için Vercel'i doğrudan
+bu repoya bağlamak mümkün)** — bkz. madde 22 sonu.
 
 ## Yapı
 - Next.js 16 (App Router, Turbopack), Tailwind CSS 4, TypeScript, Framer Motion
