@@ -44,10 +44,39 @@ export const viewport: Viewport = {
   themeColor: "#0a1628",
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  name: "MSO Denetim ve Serbest Muhasebeci Mali Müşavirlik A.Ş.",
+  alternateName: "MSO Denetim",
+  url: "https://msodenetim.com.tr",
+  logo: "https://msodenetim.com.tr/logo-full.png",
+  image: "https://msodenetim.com.tr/logo-full.png",
+  telephone: "+902125336969",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Nef12 Merter Ofis B Blok No:33 Kat:4",
+    addressLocality: "Zeytinburnu",
+    addressRegion: "İstanbul",
+    addressCountry: "TR",
+  },
+  foundingDate: "1971",
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "08:30",
+    closes: "18:30",
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr" className={`${cormorant.variable} ${dmSans.variable}`}>
       <body style={{ fontFamily: "var(--font-dm), sans-serif" }}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Navbar />
         <main>{children}</main>
         <Footer />
