@@ -4,7 +4,35 @@
 > önce burayı oku, kod tabanını baştan taramaya gerek yok. Session sonunda
 > (kayda değer bir değişiklik olduysa) bu dosyayı güncelle.
 
-## Durum: Kapsamlı çoklu-cihaz QA TAMAMLANDI + kritik Navbar bug'ı düzeltildi — sıradaki adım Vercel deployment + DNS
+## Durum: SİTE CANLIDA — deployment TAMAMLANDI (https://msodenetim.com.tr)
+
+**2026-07-09 (aynı gün, devam): Vercel deployment + DNS bağlantısı tamamlandı.**
+- Proje Vercel'e bağlandı (`oaydogdu/MSO-WEBSITE` GitHub reposundan, proje adı
+  `mso-website`, hesap `ozy`/Hobby plan).
+- Domain isimtescil.net DNS panelinde yapılandırıldı: kök domain için A kaydı
+  (`msodenetim.com.tr` → `216.198.79.1`), `www` için zaten var olan CNAME
+  (`www.msodenetim.com.tr` → `msodenetim.com.tr`) kullanıldı.
+  **isimtescil panel notu:** "Gelişmiş DNS Yönetimi" formunda Kayıt İsmi alanına
+  `@` yazmak "geçersiz karakter" hatası veriyordu (panelin kendi talimatı yanlış/
+  bug'lı) — **çözüm: alanı tamamen boş bırakmak**, panel otomatik olarak kök
+  domain adını atadı. İleride benzer bir DNS kaydı eklenirse bunu hatırla.
+- Vercel'de hem `msodenetim.com.tr` hem `www.msodenetim.com.tr` "Add Existing"
+  ile eklendi, ikisi de **Valid Configuration**. Vercel `www`'yi production
+  domain olarak seçti, kök domain'i `www`'ye 308 ile yönlendiriyor (bu Vercel'in
+  otomatik/varsayılan davranışı, elle ayarlanmadı).
+- `curl` ile doğrulandı: `https://www.msodenetim.com.tr` → `200 OK`,
+  `https://msodenetim.com.tr` → `308` → `www`'ye yönleniyor, ikisinde de SSL
+  (Let's Encrypt, Vercel otomatik) ve daha önce eklenen güvenlik header'ları
+  (CSP, HSTS, X-Frame-Options vb.) production'da aktif ve doğrulandı.
+
+**Proje artık uçtan uca tamamlandı: içerik/tasarım/responsive/güvenlik/QA/
+domain/deployment hepsi bitti, site canlıda.** Yeni session'da olası konular:
+kullanıcıdan gelecek küçük içerik/metin güncellemeleri, yeni makale ekleme
+(`src/data/articles.ts`, madde 18/20'deki desen), ya da ertelenen hero video
+denemesi (madde 2, Higgsfield hesap sorunu çözülürse). Kod tabanını baştan
+taramaya gerek yok, buradan devam et.
+
+## Durum (önceki): Kapsamlı çoklu-cihaz QA TAMAMLANDI + kritik Navbar bug'ı düzeltildi — sıradaki adım Vercel deployment + DNS
 
 **2026-07-09 (aynı gün, devam): Tüm cihaz sınıflarında (mobil/masaüstü dışında
 tablet dikey/yatay, küçük telefon, büyük masaüstü) kapsamlı QA turu yapıldı**
