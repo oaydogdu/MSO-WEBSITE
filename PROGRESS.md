@@ -4,7 +4,31 @@
 > önce burayı oku, kod tabanını baştan taramaya gerek yok. Session sonunda
 > (kayda değer bir değişiklik olduysa) bu dosyayı güncelle.
 
-## Durum: PROJE TAMAMEN BİTTİ — site canlıda, Google Search Console kaydı da yapıldı
+## Durum: PROJE TAMAMEN BİTTİ — son cilalar da yapıldı, açık hiçbir konu yok
+
+**2026-07-09 (aynı gün, devam): İki küçük son iş yapıldı.**
+- **DNS ufak bir kaza + düzeltme:** Kullanıcı isimtescil panelinde mükerrer A
+  kaydını temizlerken yanlışlıkla **ikisini de** sildi (kök domain'in A kaydı
+  tamamen gitti). Site DNS önbelleği sayesinde kesintisiz ayakta kaldı, hemen
+  fark edilip aynı yöntemle (Kayıt İsmi boş, IP `216.198.79.1`) tek bir A
+  kaydı olarak geri eklendi. `curl`/`dig` ile doğrulandı, sorun kalmadı. Ders:
+  isimtescil panelinde DNS kaydı silerken tabloyu dikkatli oku, "aynı görünen"
+  iki satır gerçekten aynı olabilir ama ikisini birden silmek kaydı komple yok
+  eder.
+- **theme-color meta etiketi eklendi** (`layout.tsx`, `viewport` export,
+  `#0a1628`/navy) — kullanıcı iPhone 17 Pro Max'te Safari'nin üst/alt
+  çubuklarının beyaz göründüğünü fark etti. Kod tarafı doğru eklendi ve
+  production'da doğrulandı (`<meta name="theme-color" content="#0a1628"/>`
+  HTML'de var), ama kullanıcının cihazında görsel değişiklik yansımadı.
+  **Kapatıldı, düzeltilmeyecek:** Bu muhtemelen Safari'nin sekme önbelleği
+  veya iOS'un kendi "Sekme Çubuğu" ayarıyla ilgili, sitenin kodundan
+  kaynaklanmıyor — kullanıcı "önemli değil, kalsın" dedi. İleride tekrar
+  gündeme gelirse: kod tarafı zaten doğru, tekrar debug etmeye gerek yok,
+  sorun varsa cihaz/Safari ayarında aranmalı.
+
+**Proje son haliyle tamamen bitti, bilinen açık hiçbir konu yok.**
+
+## Durum (önceki): PROJE TAMAMEN BİTTİ — site canlıda, Google Search Console kaydı da yapıldı
 
 **2026-07-09 (aynı gün, devam): SEO/Search Console kurulumu tamamlandı.**
 - Google Search Console'a **Domain property** olarak `msodenetim.com.tr`
