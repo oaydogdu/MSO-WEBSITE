@@ -18,9 +18,26 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const title = "MSO Denetim & S.M.M.M | Rakamların Ötesinde, Gerçek Değer.";
+const description = "1971'den bu yana mali müşavirlik, bağımsız denetim ve vergi danışmanlığı alanlarında Türkiye genelinde hizmet veren MSO Denetim ve Serbest Muhasebeci Mali Müşavirlik A.Ş.";
+
 export const metadata: Metadata = {
-  title: "MSO Denetim & S.M.M.M | Rakamların Ötesinde, Gerçek Değer.",
-  description: "1971'den bu yana mali müşavirlik, bağımsız denetim ve vergi danışmanlığı alanlarında Türkiye genelinde hizmet veren MSO Denetim ve Serbest Muhasebeci Mali Müşavirlik A.Ş.",
+  metadataBase: new URL("https://msonet.org"),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    locale: "tr_TR",
+    type: "website",
+    images: ["/logo-full.png"],
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+    images: ["/logo-full.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

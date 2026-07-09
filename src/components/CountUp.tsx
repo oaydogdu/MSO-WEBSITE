@@ -7,7 +7,7 @@ interface Props {
   duration?: number;
 }
 
-export default function CountUp({ value, duration = 2000 }: Props) {
+export default function CountUp({ value, duration = 1000 }: Props) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   const [count, setCount] = useState(0);

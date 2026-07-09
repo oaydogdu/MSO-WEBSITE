@@ -4,18 +4,34 @@
 > önce burayı oku, kod tabanını baştan taramaya gerek yok. Session sonunda
 > (kayda değer bir değişiklik olduysa) bu dosyayı güncelle.
 
-## Durum: 7 sayfa da içerikle dolu, temel marka kimliği oturmuş
+## Durum: İçerik ve responsive işi TAMAMLANDI — sıradaki adım domain + deployment
 
-Build/lint/type-check temiz. İlk gerçek commit atıldı (`6fa7a56`), o commit'ten
-sonra epey değişiklik oldu ve henüz commit'lenmedi — bkz. madde 9-12. Sormadan
-commit ATMA.
+Build/lint/type-check temiz, `npm run build` de dahil (2026-07-09'da tam bir
+production build denemesi yapıldı, sorunsuz). İki commit atıldı (`6fa7a56`,
+`cb538fa`), ikinci commit'ten sonra da epey değişiklik oldu (madde 15-22:
+Battal logo, sektörler hover fix, ekip sırası + Ali Pınar taşıma,
+**Yayınlarımız özelliği**, 3 makale, Miras&Vizyon başlık birleştirme, geniş
+çaplı mobil responsive geçişi, Ali Aydoğdu + Ali Pınar fotoğraf/bio
+tamamlandı, **deployment öncesi tam QA turu (masaüstü+mobil, 9 sayfa)
+tamamlandı — hata bulunmadı**) ve henüz commit'lenmedi (`git status` ile çok
+sayıda değişmiş/yeni dosya var). **Sormadan commit ATMA** — yeni session'da
+kullanıcı isterse bir commit önerisi sunulabilir ama otomatik atılmamalı.
+
+**Yeni session buradan devam etmeli:** Site içerik/tasarım/QA tarafı bitti,
+kod tabanını baştan taramaya gerek yok. **Sıradaki ve tek açık konu: domain
+satın alma (`mso.com.tr` / `msosmmm.com.tr` öneriliyor, `isimtescil.net`
+üzerinden) ve ardından Vercel'e deployment** — bkz. madde 22 sonu.
 
 ## Yapı
 - Next.js 16 (App Router, Turbopack), Tailwind CSS 4, TypeScript, Framer Motion
 - Sayfalar: `/` (ana sayfa), `/hizmetlerimiz`, `/sektorler`, `/hakkimizda`, `/ekibimiz`,
-  `/miras-vizyon`, `/iletisim`
+  `/miras-vizyon`, `/iletisim`, `/yayinlarimiz` (liste), `/yayinlarimiz/[slug]` (tekil makale)
 - Ortak bileşenler: `src/components/Navbar.tsx`, `Footer.tsx`, `AnimatedSection.tsx`
-  (scroll-reveal, framer-motion `useInView`), `CountUp.tsx` (sayaç animasyonu)
+  (scroll-reveal, framer-motion `useInView`), `CountUp.tsx` (sayaç animasyonu),
+  `LogoMarquee.tsx` (referans logo şeridi)
+- Veri dosyaları: `src/data/clients.ts` (referanslar), `src/data/books.ts` (kitaplar,
+  paylaşımlı: Miras&Vizyon + Yayınlarımız), `src/data/articles.ts` (makaleler,
+  `ArticleBlock` discriminated union: heading/subheading/paragraph/list)
 - Firma bilgi kaynağı: `../mso_website_bilgiler.md` (proje dışı, masaüstünde)
 
 ## Tamamlanan işler (kronolojik)
@@ -111,6 +127,157 @@ commit ATMA.
     `CountUp.tsx` sabit "step" mantığından `requestAnimationFrame` tabanlı zaman
     ilerlemesine geçirildi (büyük sayılar — örn. 1971 — artık küçük sayılarla
     aynı sürede bitiyor, öncesinde daha uzun sürüyordu).
+13. **Mehmet Sami Özeren fotoğrafı (2026-07-02).** `public/team/mehmetsami.jpg`
+    eklendi (565x565, hazır kırpılmış). `ekibimiz/page.tsx`'teki yönetici
+    kartında "MÖ" harf avatarı yerine fotoğraf konuldu (Ali Aydoğdu hâlâ harf
+    avatarında — onun fotoğrafı yok). `miras-vizyon/page.tsx`'teki profil paneli
+    yeniden tasarlandı: küçük daire yerine tüm kare paneli dolduran fotoğraf +
+    alt kısımda koyu degrade üzerinde isim/unvan (kütüphane bölümüyle aynı
+    tasarım dili).
+14. **Navbar sadeleştirildi + hero watermark (2026-07-02, kullanıcı kararı).**
+    `Navbar.tsx`'teki 3 oklu ikon (`logo-mark.png`, artık silindi) kaldırıldı,
+    yerine tek satırlık "MSO | DENETİM & S.M.M.M" lockup'ı geldi (gold MSO +
+    ince dikey ayraç + küçük gri alt yazı, `whitespace-nowrap` ile mobilde de
+    tek satır). Bu paylaşımlı bileşen olduğu için TÜM sayfaları etkiliyor
+    (bilinçli karar). İkon tamamen kaybolmadı: ana sayfa hero'sunun arka
+    planına watermark olarak eklendi — **ilk denemede sadece ok ikonu**
+    kullanıldı, kullanıcı "tüm logo (ikon+MSO) olsun" dedi. `public/logo.png`
+    kaynağından ikon+MSO bloğu (subtitle hariç) yeni bir renk/parlaklık
+    maskesiyle ayıklanıp `public/logo-full.png` (537x301, şeffaf) oluşturuldu.
+    Watermark 1600px genişlikte, `opacity:0.04`, **tam ortalanmış**
+    (`left:50%` + `translate(-50%,-50%)` — ilk halinde `right` ile
+    konumlandırılmıştı, kenardan taşıp harf kesiliyordu, kullanıcı geri
+    bildirimiyle ortalandı). Sadece ana sayfada var. **Logo/navbar konusu
+    tekrar kapalı, kullanıcı onayladı.**
+15. **Battal Grup logosu güncellendi (2026-07-03).** Kullanıcı `battal.png`
+    dosyasını yeni bir logoyla (mavi "B" ikonlu "Battal Group") değiştirdi;
+    sağ kenarda 1px'lik çizgi artefaktı kırpıldı. **Önbellek tuzağı:** aynı
+    dosya adına yeni içerik yazınca Next.js `/_next/image` optimizer'ı eski
+    ETag'i geçerli sanıp tarayıcıya 304 dönüyor, dosya değişse de görsel
+    güncellenmiyor — `.next/cache` silmek/sunucu yeniden başlatmak/sert
+    yenileme YETMEDİ. **Kalıcı çözüm: dosyayı yeni isimle kaydet**
+    (`battal-v2.png`) ve referansı güncelle; yeni URL hiçbir önbellekte
+    olmadığı için sorunu kesin çözer. İleride bir müşteri logosu
+    "değiştirdim ama değişmiyor" derse önce bunu dene. İsim `clients.ts`'te
+    "Battal Grup" (Holding değil). Görünürde küçük kaldığı için `scale: 1.3`
+    verildi.
+16. **Ana sayfa Sektörler hover bug'ı düzeltildi (2026-07-03).** `.sector-card`
+    global CSS class'ı (`globals.css`) hover'da `background: navy; color: white`
+    veriyordu ama numara/başlık span'lerinde satır-içi `style={{color:...}}`
+    vardı — inline style CSS class'tan daha güçlü olduğu için hover'da navy
+    zemin üzerinde navy/görünmez yazı kalıyordu (`.sector-num` class'ı da hiç
+    uygulanmamıştı, o kural da hiç çalışmıyordu). **Çözüm:** Tailwind
+    `group`/`group-hover:` deseniyle yeniden yazıldı (`page.tsx` SECTORS
+    bölümü), artık numara hover'da gold, başlık beyaz oluyor, `transition-colors
+    duration-300` ile yumuşak geçiş var. Kullanılmayan `.sector-card`/
+    `.sector-num` kuralları `globals.css`'ten silindi (hiçbir sayfa kullanmıyordu
+    — `/sektorler` sayfası zaten farklı, kendi hover tasarımını kullanıyor ve
+    bu bug'dan etkilenmiyordu).
+17. **Ekip düzenlemeleri (2026-07-07).** Ekip kartı fotoğraf/avatar daireleri
+    büyütüldü (144px→176px). Sıra değişti: Ali Pınar, Hatice Akbaş, Ali Kemal
+    Özdemir, Mustafa Zor, Ceyda Güven, Beyza Arslan, Tamer Turan, Mert Aydoğdu,
+    Oğuzhan Aydoğdu. **Ali Pınar Uzman Kadromuz'dan Yöneticilerimiz'e taşındı**
+    (unvan: "Yönetici", alt yazı: "Mali Müşavir & Bağımsız Denetçi") — bio/badge
+    henüz yok, `m.badges &&` ile koşullu render edildi (yoksa çökerdi). 2 sütunlu
+    grid'de 3. kart tek başına alt satırda kalıyor, kullanıcı bilgiler/fotoğraf
+    gelince tasarımı tekrar gözden geçirecek.
+18. **Yayınlarımız özelliği eklendi (2026-07-07, "Makaleler" ismi tartışılıp
+    "Yayınlarımız" olarak değiştirildi).** `/yayinlarimiz` (liste: Kitaplarımız
+    + Makalelerimiz) + `/yayinlarimiz/[slug]` (tekil makale, `generateStaticParams`
+    ile statik) sayfaları kuruldu. Navbar'da "Yayınlarımız" linki var. **Ana
+    sayfaya eklenmedi** (zaten 9 bölümle uzun kabul edildi, kullanıcı da aynı
+    fikirde). Kitap verisi `miras-vizyon/page.tsx`'ten `src/data/books.ts`'e
+    taşındı (paylaşımlı), makale verisi `src/data/articles.ts`'te —
+    `ArticleBlock` tipi (`heading`/`subheading`/`paragraph`) ile uzun,
+    bölümlü metinler düzgün render ediliyor. **2 gerçek makale eklendi**
+    (kullanıcı PDF gönderdi, tam metin işlendi): "Empatik Yurttaşlık ve
+    Demokrasinin Geleceği" ve "Frontal Korteks, Bilişsel Gelişim ve Ülke
+    Geleceği" — ikisi de Mehmet Sami Özeren imzalı. Miras & Vizyon sayfasına
+    da bu makalelerin **vitrin** (başlık+özet+"Yayınlarımız'da Oku" linki,
+    tam metin tekrarlanmıyor) hâlinde bir "Makaleleri" bölümü eklendi —
+    `ozerenArticles = articles.filter(a => a.author === "Mehmet Sami Özeren")`
+    ile otomatik filtreleniyor. **Sıradaki:** Ali Aydoğdu'nun makaleleri
+    gelince `articles.ts`'e `author: "Ali Aydoğdu"` ile eklenmesi yeterli,
+    otomatik olarak sadece `/yayinlarimiz`'de görünecek (Miras & Vizyon'daki
+    filtre Mehmet Sami Özeren'e özel olduğu için orada görünmeyecek — bu
+    kasıtlı).
+    **Önemli teknik not:** Dev server ÇALIŞIRKEN `.next` klasörünü silmek
+    Turbopack'in persistent cache'ini bozup "corrupted database" panic'ine yol
+    açtı — önce sunucuyu durdur/kill et, SONRA `.next`'i sil, SONRA yeniden
+    başlat.
+19. **Miras & Vizyon başlık birleştirme (2026-07-07).** Kullanıcı "Akademik
+    Miras/Yayınlanan Eserler" (kitaplar) ve "Düşünce Yazıları/Makaleleri"
+    (makaleler) diye iki ayrı eyebrow+h2 setinin parçalı/saçma durduğunu
+    belirtti. Tek bölüme indirildi: tek eyebrow+h2 ("Akademik Miras" /
+    "Yayınlanan Eserler"), içeride sadece küçük "Kitaplar" / "Makaleler"
+    alt etiketleri var, ayrı section yok.
+20. **Ali Aydoğdu'nun ilk makalesi eklendi (2026-07-07).** "Yeni Varlık Barışı
+    Düzenlemesi" (PDF'den işlendi, `author: "Ali Aydoğdu"`, `authorTitle:
+    "Yönetici Ortak"`). Bu makalede gerçek madde listeleri olduğu için
+    `ArticleBlock` tipine üçüncü bir seçenek eklendi: `{ type: "list"; items:
+    string[] }` (discriminated union'a çevrildi, eskiden `{type, text}` düz
+    interface'ti). `[slug]/page.tsx` renderer'ı `<ul className="list-disc
+    pl-6">` ile listeyi düzgün basıyor. Miras & Vizyon'daki filtre sayesinde
+    bu makale sadece `/yayinlarimiz`'de görünüyor, Miras & Vizyon'da değil
+    (doğru davranış, kasıtlı). **Artık her iki kurucunun da makalesi var,
+    "Ali Aydoğdu'ya ait makale bekleniyor" maddesi kapandı** — yeni makale
+    gelirse aynı deseni (author alanına göre) tekrarla.
+21. **Mobil duyarlılık (responsive) geniş çaplı geçiş + içerik düzeltmeleri
+    (2026-07-08 – 2026-07-09).** Kullanıcı "bir süre sadece mobilde çalışalım"
+    dedi (bkz. [[feedback-mso-mobile-only-phase]] hafıza kaydı, faz aynı gün
+    kapandı) — bu süreçte tüm sayfalarda (`page.tsx`, `hizmetlerimiz`,
+    `sektorler`, `hakkimizda`, `ekibimiz`, `miras-vizyon`, `yayinlarimiz` +
+    `[slug]`, `iletisim`, `Footer.tsx`, `Navbar.tsx`) `py-XX`/`gap-XX`/`mb-XX`
+    değerleri `md:`/`lg:` prefix'i korunarak (masaüstü aynı kalacak şekilde)
+    mobilde kısaltıldı. Gerçek bir bug da bulunup düzeltildi: `html`'de
+    `overflow-x: hidden` eksikti, `AnimatedSection`'ın animasyon-öncesi
+    transform'u (direction="left/right", x:±40) sayfayı geçici olarak yatayda
+    kaydırabiliyordu — `globals.css`'e `html { overflow-x: hidden; }` eklendi
+    (kalıcı, tüm cihazlar için doğru fix, mobile-only değil). Navbar mobil
+    menüsüne `Anasayfa` linki eklendi (paylaşımlı `navLinks` dizisi, hem
+    masaüstü hem mobil menüde). Hizmetlerimiz sayfasında "Diğer Hizmetler"
+    grid'i 4 kart için `lg:grid-cols-3`'ten `md:grid-cols-2`'ye düşürüldü (3'lü
+    grid'de 4. kart yalnız kalıp boşluk bırakıyordu — bu içerik/düzen düzeltmesi
+    tüm ekranlarda geçerli). Kitap kartlarında (`books.ts`) `desc` (kısa, her
+    yerde) + `descLong` (uzun, sadece masaüstü) ayrımı yapıldı; Miras & Vizyon
+    sayfasındaki anlamsız "4 — Sertifika & Yetki Belgesi" ve "2 Kitap &
+    Makaleler" stat kartları tamamen kaldırıldı (kullanıcı "saçma" buldu).
+    Ana sayfadaki Yayınlarımız teaser'ı `service-card` hover animasyonuyla
+    kompakt kartlara çevrildi, özet metni mobilde kaldırıldı masaüstünde
+    (`hidden md:block`, `line-clamp-2`) geri eklendi. **Ali Aydoğdu'nun
+    fotoğrafı eklendi** (`public/team/aliaydogdu-v4.jpg` — kaynak dosyanın EXIF
+    rotasyon etiketi bozuktu, `sips` yetersiz kaldı, Python/Pillow
+    `ImageOps.exif_transpose` ile çözüldü; ayrıca Next.js image önbellek
+    tuzağına takılıp dosya adı versiyonlanarak (`-v2` → `-v4`) aşıldı — bkz.
+    madde 15'teki aynı sorun). **Ali Pınar'ın bio'su ve fotoğrafı eklendi**
+    (`public/team/alipinar.jpg`) — kullanıcının verdiği kaynak fotoğraf düşük
+    çözünürlüktü (338×413px), kullanıcı "elimizde bu var, kullan" dedi, olduğu
+    gibi kare kırpılıp yerleştirildi, daha fazla iyileştirme yapılmadı.
+    **"Ali Pınar fotoğrafı/biyografisi bekleniyor" maddesi artık kapandı.**
+    Ayrıca kullanıcıyla domain arama/satın alma süreci konuşuldu (`mso.com.tr`,
+    `msosmmm.com.tr` gibi öneriler verildi, `isimtescil.com` diye bir sahte/yanlış
+    adrese yönelmesi önlendi, doğrusu `isimtescil.net`) ama **henüz bir domain
+    satın alınmadı** — bu hâlâ açık, bir sonraki session'da nerede kaldığını sor.
+22. **Deployment öncesi son QA turu + Ali Pınar fotoğrafı v2 (2026-07-09).**
+    Kullanıcı isteğiyle önce masaüstünde sonra mobilde tüm 9 sayfa tek tek
+    (console/network hatası, kırık görsel, kırık link, grid düzeni, overflow-x)
+    tarandı — `npm run build` de dahil, hepsi temiz çıktı. **Tarama sırasında
+    gerçek bir hata bulunup düzeltildi:** Ekibimiz sayfasında Ali Pınar eklenip
+    Yöneticilerimiz 3 kişiye çıkınca grid hâlâ `lg:grid-cols-2` idi, 3. kart
+    yalnız kalıp sağda boşluk bırakıyordu (Hizmetlerimiz'deki 4-kart-3-sütun
+    sorununun aynısı) — `lg:grid-cols-3` yapıldı. Ayrıca tarama sırasında birkaç
+    "yanlış alarm" oldu (hepsi preview aracının ekran görüntüsü zamanlama
+    kısıtlaması ya da test seçicisinin birden fazla eşleşen elemente çarpması —
+    siteyle ilgili değil, DOM/network üzerinden gerçek durumun doğru olduğu
+    teyit edildi). Bunun ardından **kullanıcı Ali Pınar'ın yüksek çözünürlüklü
+    (1530×2040) yeni bir fotoğrafını kaydetti** — madde 21'deki düşük
+    çözünürlüklü (338×413) `alipinar.jpg` yerini **`public/team/alipinar-v2.jpg`**
+    aldı (profesyonel baş-omuz kırpması, 700×700, Pillow ile). Kod tarafında
+    tek bir `photo` alanı hem masaüstü büyük kart hem mobil kompakt başlıkta
+    kullanıldığı için tek değişiklik iki görünümü de kapsadı. **Sonuç:
+    deployment'a teknik engel yok**, kullanıcı bir sonraki session'da domain
+    satın alma + Vercel deployment sürecine geçecek — yeni session bundan
+    devam etmeli, kod tabanını baştan taramaya gerek yok.
 
 ## Ortam notu: macOS Masaüstü izni (2026-07-02'de yaşandı)
 Session ortasında macOS, shell + dosya araçlarının Desktop erişimini kesti
@@ -121,20 +288,20 @@ Claude girdisinde Desktop iznini aç + **uygulamayı tamamen yeniden başlat**
 `public/` dosya varlığı dev server'a HTTP HEAD atılarak keşfedilebiliyor.
 
 ## Açık / bekleyen konular (2026-07-02 itibarıyla kullanıcıyla netleşti)
-- **KULLANICIDAN BEKLENEN — TEKRAR SOR:** E-Mükellef gerçek giriş URL'si.
-  Kullanıcı "sonra ileteceğim, bana tekrardan sor" dedi (2026-07-02). Yeni
-  session'da uygun bir anda hatırlat. Şu an placeholder: `https://www.emukellef.com.tr`.
 - **Hero video** — kullanıcı kararıyla beklemede ("biraz daha bekletelim",
   2026-07-02). Higgsfield hesap sorunu + prompt taslağı bu dosyanın altında.
-- **Ali Pınar fotoğrafı** — kullanıcı verecek; gelince `public/team/`'e koyup
-  `ekibimiz/page.tsx`'te `photo` alanını eklemek yeterli (fallback hazır).
-- **Canlıya alma (deployment)** — kullanıcı kararı: EN SON yapılacak.
+- **Canlıya alma (deployment)** — kullanıcı kararı: EN SON yapılacak. Domain
+  araştırması yapıldı (2026-07-08) ama henüz satın alınmadı — bkz. kapanan
+  konular altında "Domain seçimi" maddesi.
 - Commit'ler artık serbest değil: ilk commit kullanıcı onayıyla atıldı ama
   sonraki commit'ler için yine sormadan ATMA.
 
 ## Kapanan konular
-- ~~İçerik & Yayınlar~~ — kullanıcı makale/duyuru paylaşmayı düşünmüyor
-  (2026-07-02). Bu konuyu tekrar açma.
+- ~~İçerik & Yayınlar~~ — **GÜNCEL DURUM (2026-07-07): Bu karar tersine döndü.**
+  2026-07-02'de kullanıcı makale paylaşmayı düşünmediğini söylemişti, ama
+  2026-07-07'de fikrini değiştirip "Yayınlarımız" özelliğini kurdurdu (madde
+  18-20). Bu satır sadece geçmiş bağlam için tutuluyor, artık geçerli değil —
+  yeni session'da bu eski karara güvenip "yayın istemiyorsunuz" deme.
 - ~~İletişim formu~~ — "Mesaj Gönderin" formu tamamen kaldırıldı, yerine Google
   Maps embed konuldu (iki sütunlu orijinal yerleşim korundu). Kullanıcı haritanın
   doğru konumu gösterdiğini doğruladı.
@@ -142,6 +309,14 @@ Claude girdisinde Desktop iznini aç + **uygulamayı tamamen yeniden başlat**
   kullanıcı memnun. Detay: 7 müşteri logosu `public/clients/` + `src/data/clients.ts`
   + `src/components/LogoMarquee.tsx`; logo altlarında şirket isimleri yazıyor;
   hız `clients.length * 6s` ile ölçekleniyor; hover'da duruyor.
+- ~~E-Mükellef gerçek giriş linki~~ (2026-07-03) — kullanıcı gerçek URL'yi iletti:
+  `https://msonet.emukellef.org/emukellef/`. `page.tsx` (E-Mükellef bölümü) ve
+  `Navbar.tsx`'teki (masaüstü + mobil menü) 3 buton güncellendi, placeholder
+  (`emukellef.com.tr`) tamamen kaldırıldı. Tekrar sorma, konu kapalı.
+- ~~Sektörler sayfası "bulamadım" notu~~ (2026-07-03) — kullanıcının fikri:
+  yeni müşteri kendi sektörünü 12'lik listede göremeyip siteden ayrılabilir.
+  `/sektorler` sayfasının en altına navy kutu içinde güven verici not +
+  "Bize Ulaşın" butonu (`/iletisim`) eklendi.
 
 ## Kullanıcı tercihleri / dikkat edilecekler
 - Kullanıcı Türkçe konuşuyor, yanıtlar Türkçe olmalı.

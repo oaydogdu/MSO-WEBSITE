@@ -5,7 +5,7 @@ export default function IletisimPage() {
   return (
     <>
       <section
-        className="pt-40 pb-24"
+        className="pt-28 pb-16 md:pt-40 md:pb-24"
         style={{ background: "linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%)" }}
       >
         <div className="max-w-7xl mx-auto px-6">
@@ -19,23 +19,23 @@ export default function IletisimPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-14 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 md:gap-16">
 
             {/* Contact Info */}
             <AnimatedSection direction="left" className="lg:col-span-2 space-y-8">
               <div>
-                <p className="text-sm font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--gold)" }}>İletişim Bilgileri</p>
+                <p className="text-sm font-semibold tracking-widest uppercase mb-4 md:mb-6" style={{ color: "var(--gold)" }}>İletişim Bilgileri</p>
 
-                <div className="space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(10,22,40,0.06)" }}>
                       <MapPin size={18} style={{ color: "var(--navy)" }} />
                     </div>
                     <div>
                       <p className="font-semibold text-sm mb-1" style={{ color: "var(--navy)" }}>Adres</p>
-                      <p className="text-gray-500 text-sm leading-relaxed">Nef12 Merter Ofis B Blok<br />No 33 Kat 4, Merter/İstanbul</p>
+                      <p className="text-gray-500 text-sm leading-relaxed">Nef12 Merter Ofis B Blok<br />No:33 Kat:4, Zeytinburnu/İstanbul</p>
                     </div>
                   </div>
 
@@ -85,10 +85,10 @@ export default function IletisimPage() {
 
             {/* Map */}
             <AnimatedSection direction="right" className="lg:col-span-3">
-              <p className="text-sm font-semibold tracking-widest uppercase mb-6" style={{ color: "var(--gold)" }}>Ofis Konumumuz</p>
+              <p className="text-sm font-semibold tracking-widest uppercase mb-4 md:mb-6" style={{ color: "var(--gold)" }}>Ofis Konumumuz</p>
               <div className="rounded-2xl overflow-hidden h-[420px] lg:h-full" style={{ border: "1px solid rgba(10,22,40,0.08)" }}>
                 <iframe
-                  src="https://www.google.com/maps?q=Nef12+Merter+Ofis+B+Blok+No+33+Kat+4+Merter+Istanbul&output=embed"
+                  src="https://www.google.com/maps?q=Nef12+Merter+Ofis+B+Blok+No+33+Kat+4+Zeytinburnu+Istanbul&output=embed"
                   className="w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

@@ -1,29 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Award, BookOpen, ShieldCheck, Landmark, ExternalLink, ArrowRight } from "lucide-react";
+import { Landmark, ExternalLink, ArrowRight } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import { books } from "@/data/books";
+import { articles } from "@/data/articles";
 
-const books = [
-  {
-    title: "YÖNET(İM)",
-    subtitle: "M. Sami Özeren · Eren Özeren",
-    publisher: "Sarmal Yayınevi",
-    desc: "İnsanlık tarihi boyunca değişmeyen bir gerçek vardır: Birlikte hareket edenler kazanır, dağınık olanlar kaybeder. Yönetim, işte tam bu noktada başlar. Sadece bir organizasyonu, bir işletmeyi ya da bir kurumu yönlendirmek değil; aynı zamanda insanları, süreçleri ve değişimi anlamlandırmak ve yön vermektir. Bu kitap, yönetimi yalnızca teorik bir çerçeve olarak ele almak yerine, onu yaşayan, dönüşen ve sürekli gelişen bir sistem olarak sunar.",
-    link: "https://www.kitapyurdu.com/kitap/yonetim/754552.html?manufacturer_id=180829",
-    color: "#1a3a1a",
-    accent: "#4a7c4a",
-  },
-  {
-    title: "GİRİŞ(İM)",
-    subtitle: "M. Sami Özeren · Eren Özeren Özgül",
-    publisher: "Beta Yayınevi",
-    sublabel: "Gelişim İçin Girişim",
-    desc: "Girişimcilik, günlük hayatta sıkça kullanılan ama nadiren gerçek anlamıyla ele alınan bir kavramdır. GİRİŞ(İM), bu kavramı yalnızca cesaret ya da fikir sahibi olmakla sınırlamaz; matematikten psikolojiye, sosyolojiden ekonomiye uzanan disiplinler arası bir bakışla girişimcinin sahip olması gereken istek, ideal, ataklık ve amaca yönelme niteliklerini bir araya getirir. Bu kitap, girişimciliği hazır bir formül olarak sunmak yerine, girişim ruhunu besleyen düşünce sistematiğini ve bu ruhu harekete geçiren araç ve yöntemleri anlamlandırır.",
-    link: "https://www.kitapyurdu.com/kitap/girisim-gelisim-icin-girisim/368485.html?manufacturer_id=180829",
-    color: "#3a1a0a",
-    accent: "#8b5a2b",
-  },
-];
+const ozerenArticles = articles.filter((a) => a.author === "Mehmet Sami Özeren");
 
 const memberships = [
   "Serbest Muhasebeciler Mali Müşavirler Odası",
@@ -39,7 +21,7 @@ export default function MirasVizyonPage() {
     <>
       {/* Hero */}
       <section
-        className="pt-40 pb-32 relative overflow-hidden"
+        className="pt-28 pb-16 md:pt-40 md:pb-32 relative overflow-hidden"
         style={{ background: "linear-gradient(135deg, #060e1c 0%, var(--navy) 60%, #0d1f3c 100%)" }}
       >
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 60% 50%, rgba(201,168,76,0.07) 0%, transparent 60%)" }} />
@@ -58,27 +40,32 @@ export default function MirasVizyonPage() {
       </section>
 
       {/* Profile */}
-      <section className="py-24 bg-white">
+      <section className="py-14 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-16 items-start">
             <AnimatedSection direction="left" className="lg:col-span-1">
               <div
-                className="rounded-2xl overflow-hidden aspect-square flex items-center justify-center"
+                className="relative rounded-2xl overflow-hidden aspect-square"
                 style={{ background: "var(--navy)" }}
               >
-                <div className="text-center">
-                  <div
-                    className="w-32 h-32 rounded-full flex items-center justify-center text-4xl font-bold mx-auto mb-4 border-2"
-                    style={{ background: "rgba(201,168,76,0.15)", borderColor: "var(--gold)", color: "var(--gold)" }}
-                  >
-                    MSÖ
-                  </div>
+                <Image
+                  src="/team/mehmetsami.jpg"
+                  alt="Mehmet Sami Özeren"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                  className="object-cover object-top"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "linear-gradient(0deg, rgba(6,14,28,0.9) 0%, rgba(6,14,28,0.1) 45%, transparent 70%)" }}
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
                   <p className="text-white font-bold text-lg">Mehmet Sami Özeren</p>
                   <p className="text-sm mt-1" style={{ color: "var(--gold)" }}>Kurucu Ortak</p>
                 </div>
               </div>
-              <div className="mt-6 rounded-xl p-6 border border-gray-100">
-                <h4 className="font-bold text-sm uppercase tracking-widest mb-4" style={{ color: "var(--navy)" }}>Unvanlar</h4>
+              <div className="mt-4 md:mt-6 rounded-xl p-5 md:p-6 border border-gray-100">
+                <h4 className="font-bold text-sm uppercase tracking-widest mb-3 md:mb-4" style={{ color: "var(--navy)" }}>Unvanlar</h4>
                 <ul className="space-y-2">
                   {["Mali Müşavir & Bağımsız Denetçi", "Yönetim Muhasebesi Uzmanı", "Yazar & Akademisyen"].map(u => (
                     <li key={u} className="text-sm text-gray-500 flex items-center gap-2">
@@ -92,9 +79,9 @@ export default function MirasVizyonPage() {
 
             <AnimatedSection direction="right" className="lg:col-span-2">
               <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>Yolculuk</p>
-              <h2 className="font-display text-4xl font-bold mb-8 gold-line" style={{ color: "var(--navy)" }}>Bir Öncünün Hikayesi</h2>
+              <h2 className="font-display text-4xl font-bold mb-5 md:mb-8 gold-line" style={{ color: "var(--navy)" }}>Bir Öncünün Hikayesi</h2>
 
-              <div className="space-y-6 text-gray-500 leading-relaxed">
+              <div className="space-y-4 md:space-y-6 text-gray-500 leading-relaxed">
                 <p>
                   1953 yılında İstanbul Eminönü&apos;nde dünyaya gelen Mehmet Sami Özeren, yükseköğrenimini Galatasaray İktisat ve İşletmecilik Yüksek Okulu&apos;nda tamamlamıştır. 1976&apos;daki mezuniyetinin ardından <strong style={{ color: "var(--navy)" }}>Holantse Bank Uni-NV (ABN-AMRO Bank)</strong> İstanbul Merkez Şubesi&apos;nde İç Denetim Sorumlusu olarak göreve başlamış, yaklaşık yedi yıl süren bu bankacılık deneyimi onun finansal denetim ve yönetim konusundaki uzmanlığının temelini oluşturmuştur.
                 </p>
@@ -105,33 +92,19 @@ export default function MirasVizyonPage() {
                   1984 yılında bankacılık kariyerini noktalayıp kendini tamamen Serbest Muhasebeci ve Mali Müşavirliğe adayan Özeren, yıllar içinde yetiştirdiği çok sayıda öğrenci ve meslektaşıyla da iz bırakmıştır. Bugün bu isimlerin birçoğu Türkiye&apos;nin önde gelen şirketlerinde <strong style={{ color: "var(--navy)" }}>CEO, CFO ve üst düzey yönetici</strong> olarak görev yapmaktadır — mesleki mirasının ve eğitimci kimliğinin en somut göstergesi.
                 </p>
               </div>
-
-              <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {[
-                  { icon: ShieldCheck, label: "Sertifika & Yetki Belgesi", val: "4" },
-                  { icon: BookOpen, label: "Yayınlanan Eser", val: "2 Kitap & Makaleler" },
-                  { icon: Award, label: "Mesleki Deneyim", val: "40+ Yıl" },
-                ].map(item => (
-                  <div key={item.label} className="rounded-xl p-5 text-center" style={{ background: "rgba(10,22,40,0.04)" }}>
-                    <item.icon size={22} className="mx-auto mb-3" style={{ color: "var(--gold)" }} />
-                    <div className="font-display font-bold text-sm mb-1" style={{ color: "var(--navy)" }}>{item.val}</div>
-                    <div className="text-xs text-gray-400">{item.label}</div>
-                  </div>
-                ))}
-              </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* Social Responsibility */}
-      <section className="py-24" style={{ background: "var(--navy)" }}>
+      <section className="py-14 md:py-24" style={{ background: "var(--navy)" }}>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <AnimatedSection direction="left">
               <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>Sosyal Sorumluluk</p>
-              <h2 className="font-display text-4xl font-bold text-white mb-8">Kültürel ve<br />Toplumsal Katkı</h2>
-              <p className="text-white/60 leading-relaxed mb-6">
+              <h2 className="font-display text-4xl font-bold text-white mb-5 md:mb-8">Kültürel ve<br />Toplumsal Katkı</h2>
+              <p className="text-white/60 leading-relaxed mb-4 md:mb-6">
                 2010 yılında <strong className="text-white">İstanbul Kültür Başkenti Ajansı</strong>&apos;nda Artistik Komite Koordinatörlüğü görevini üstlenen Mehmet Sami Özeren, meslek sınırlarının ötesinde kültürel ve toplumsal alanlara da önemli katkılar sağlamıştır.
               </p>
               <p className="text-white/60 leading-relaxed">
@@ -150,34 +123,36 @@ export default function MirasVizyonPage() {
         </div>
       </section>
 
-      {/* Books */}
-      <section className="py-24 bg-gray-50">
+      {/* Books & Articles */}
+      <section className="py-14 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <AnimatedSection className="mb-16">
+          <AnimatedSection className="mb-8 md:mb-16">
             <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>Akademik Miras</p>
             <h2 className="font-display text-4xl font-bold gold-line" style={{ color: "var(--navy)" }}>Yayınlanan Eserler</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+          <p className="text-xs font-bold tracking-widest uppercase mb-4 md:mb-6" style={{ color: "var(--navy)" }}>Kitaplar</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-10">
             {books.map((book, i) => (
               <AnimatedSection key={book.title} delay={i * 0.1}>
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full">
-                  <div className="h-56 flex items-center justify-center" style={{ background: book.color }}>
-                    <div className="text-center px-8">
-                      <h3 className="font-display text-4xl font-black text-white mb-2">{book.title}</h3>
-                      {book.sublabel && <p className="text-sm" style={{ color: book.accent }}>{book.sublabel}</p>}
-                    </div>
+                <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex items-start h-full">
+                  <div className="w-36 sm:w-44 flex-shrink-0 bg-gray-50 p-4">
+                    <Image src={book.cover} alt={book.title} width={400} height={520} className="w-full h-auto rounded-md shadow-md" />
                   </div>
-                  <div className="p-8 flex flex-col flex-1">
+                  <div className="p-5 md:p-8 flex flex-col flex-1 min-w-0">
+                    <h3 className="font-display text-2xl font-bold mb-1" style={{ color: "var(--navy)" }}>{book.title}</h3>
+                    {book.sublabel && <p className="text-sm mb-2" style={{ color: book.accent }}>{book.sublabel}</p>}
                     <div className="mb-1">
                       <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "var(--gold)" }}>{book.publisher}</span>
                     </div>
-                    <p className="text-gray-400 text-xs mb-4">{book.subtitle}</p>
-                    <p className="text-gray-500 text-sm leading-relaxed flex-1">{book.desc}</p>
+                    <p className="text-gray-400 text-xs mb-3">{book.subtitle}</p>
+                    <p className="text-gray-500 text-sm leading-relaxed flex-1 md:hidden">{book.desc}</p>
+                    <p className="hidden md:block text-gray-500 text-sm leading-relaxed flex-1">{book.descLong}</p>
                     <a
                       href={book.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-6 flex items-center gap-2 text-sm font-semibold transition-colors"
+                      className="mt-4 md:mt-6 flex items-center gap-2 text-sm font-semibold transition-colors"
                       style={{ color: "var(--navy)" }}
                     >
                       <ExternalLink size={14} />
@@ -188,6 +163,32 @@ export default function MirasVizyonPage() {
               </AnimatedSection>
             ))}
           </div>
+
+          {ozerenArticles.length > 0 && (
+            <div className="mt-8 md:mt-16">
+              <p className="text-xs font-bold tracking-widest uppercase mb-4 md:mb-6" style={{ color: "var(--navy)" }}>Makaleler</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                {ozerenArticles.map((article, i) => (
+                  <AnimatedSection key={article.slug} delay={i * 0.1}>
+                    <Link href={`/yayinlarimiz/${article.slug}`} className="block h-full">
+                      <div className="bg-white rounded-2xl p-5 md:p-8 border border-gray-100 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                        <p className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "var(--gold)" }}>
+                          {article.author} · {article.date}
+                        </p>
+                        <h3 className="font-display text-xl font-bold mb-3 leading-tight" style={{ color: "var(--navy)" }}>
+                          {article.title}
+                        </h3>
+                        <p className="text-gray-500 text-sm leading-relaxed mb-4 md:mb-6 flex-1">{article.excerpt}</p>
+                        <span className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase" style={{ color: "var(--gold)" }}>
+                          Yayınlarımız&apos;da Oku <ArrowRight size={12} />
+                        </span>
+                      </div>
+                    </Link>
+                  </AnimatedSection>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -204,12 +205,12 @@ export default function MirasVizyonPage() {
           className="absolute inset-0"
           style={{ background: "linear-gradient(0deg, rgba(6,14,28,0.94) 0%, rgba(6,14,28,0.6) 45%, rgba(6,14,28,0.2) 100%)" }}
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pb-10 md:pb-16 w-full">
           <AnimatedSection>
-            <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>Kişisel Koleksiyon</p>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6">Mehmet Sami Özeren Kütüphanesi</h2>
-            <p className="text-white/70 text-lg max-w-2xl leading-relaxed mb-8">
-              Yılların birikimini bir araya getiren binlerce ciltlik kişisel kütüphanesi, ofisimizde ziyaretçilerimizi ağırlamaya devam ediyor.
+            <p className="text-sm font-semibold tracking-widest uppercase mb-3 md:mb-4" style={{ color: "var(--gold)" }}>Kişisel Koleksiyon</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6">Mehmet Sami Özeren Kütüphanesi</h2>
+            <p className="text-white/70 text-lg max-w-2xl leading-relaxed mb-5 md:mb-8">
+              Yılların birikimini bir araya getiren zengin kişisel kütüphanesi, ofisimizde ziyaretçilerimizi ağırlamaya devam ediyor.
             </p>
             <Link
               href="/iletisim"

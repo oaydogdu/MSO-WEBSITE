@@ -1,4 +1,5 @@
-import { ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { ChevronRight, ArrowRight } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const sectors = [
@@ -68,7 +69,7 @@ export default function SektorlerPage() {
   return (
     <>
       <section
-        className="pt-40 pb-24 relative"
+        className="pt-28 pb-14 md:pt-40 md:pb-24 relative"
         style={{ background: "linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%)" }}
       >
         <div className="max-w-7xl mx-auto px-6">
@@ -82,16 +83,16 @@ export default function SektorlerPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {sectors.map((sector, i) => (
               <AnimatedSection key={sector.no} delay={(i % 4) * 0.08}>
                 <div
-                  className="rounded-2xl p-8 border border-gray-100 hover:border-transparent hover:shadow-xl transition-all duration-300 h-full"
+                  className="rounded-2xl p-5 md:p-8 border border-gray-100 hover:border-transparent hover:shadow-xl transition-all duration-300 h-full"
                   style={{ background: "#fafafa" }}
                 >
-                  <div className="flex items-start gap-5 mb-6">
+                  <div className="flex items-start gap-5 mb-3 md:mb-6">
                     <span className="font-display text-4xl font-bold shrink-0" style={{ color: "rgba(10,22,40,0.08)", lineHeight: 1 }}>{sector.no}</span>
                     <h3 className="font-display text-lg font-bold leading-tight" style={{ color: "var(--navy)" }}>{sector.title}</h3>
                   </div>
@@ -107,6 +108,25 @@ export default function SektorlerPage() {
               </AnimatedSection>
             ))}
           </div>
+
+          <AnimatedSection className="mt-8 md:mt-16">
+            <div className="rounded-2xl p-6 md:p-12 text-center" style={{ background: "var(--navy)" }}>
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">
+                Sektörünüzü Listede Bulamadınız mı?
+              </h3>
+              <p className="text-white/50 max-w-2xl mx-auto mb-5 md:mb-8 leading-relaxed">
+                Yukarıdaki liste hizmet verdiğimiz başlıca sektörleri örnekler; farklı sektörlerden pek çok işletmeye de
+                mali müşavirlik ve denetim hizmeti sunuyoruz. İşletmenizin ihtiyaçlarını konuşmak için bize ulaşın.
+              </p>
+              <Link
+                href="/iletisim"
+                className="inline-flex items-center gap-3 px-8 py-4 text-xs font-bold text-white tracking-[0.15em] uppercase transition-all hover:translate-y-[-2px]"
+                style={{ background: "var(--gold)" }}
+              >
+                Bize Ulaşın <ArrowRight size={14} />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </>

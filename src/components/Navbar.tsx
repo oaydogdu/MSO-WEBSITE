@@ -1,40 +1,30 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X, ExternalLink } from "lucide-react";
 
 const navLinks = [
+  { href: "/", label: "Anasayfa" },
   { href: "/hizmetlerimiz", label: "Hizmetlerimiz" },
   { href: "/sektorler", label: "Sektörler" },
   { href: "/hakkimizda", label: "Hakkımızda" },
   { href: "/ekibimiz", label: "Ekibimiz" },
   { href: "/miras-vizyon", label: "Miras & Vizyon" },
+  { href: "/yayinlarimiz", label: "Yayınlarımız" },
   { href: "/iletisim", label: "İletişim" },
 ];
 
 function MSOLogo() {
   return (
-    <Link href="/" className="flex flex-col shrink-0 group translate-y-[4px]">
-      {/* Orijinal lockup düzeni: 3 oklu ikon + M harfi ikonun boş (sağ alt) çeyreğinde */}
-      <div className="flex items-end">
-        <Image
-          src="/logo-mark.png"
-          alt="MSO logo"
-          width={48}
-          height={49}
-          className="w-12 h-12 shrink-0 object-contain"
-          priority
-          unoptimized
-        />
-        <span
-          className="font-black leading-none -ml-6 translate-y-[6px]"
-          style={{ color: "var(--gold)", fontSize: "31px", letterSpacing: "0.02em" }}
-        >
-          MSO
-        </span>
-      </div>
-      <span className="text-[10px] tracking-[0.22em] text-white/50 uppercase mt-1.5">
+    <Link href="/" className="flex items-center gap-3 shrink-0 group">
+      <span
+        className="font-black leading-none"
+        style={{ color: "var(--gold)", fontSize: "28px", letterSpacing: "0.02em" }}
+      >
+        MSO
+      </span>
+      <span className="w-px h-6 shrink-0" style={{ background: "rgba(201,168,76,0.3)" }} />
+      <span className="text-[11px] tracking-[0.15em] text-white/50 uppercase whitespace-nowrap">
         Denetim &amp; S.M.M.M
       </span>
     </Link>
@@ -64,50 +54,50 @@ export default function Navbar() {
       <div className="max-w-[1400px] mx-auto px-8 flex items-center justify-between" style={{ height: "88px" }}>
         <MSOLogo />
 
-        <nav className="hidden lg:flex items-center gap-10">
+        <nav className="hidden xl:flex items-center gap-7">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="nav-link text-white/75 hover:text-white text-sm font-medium tracking-wide transition-colors"
+              className="nav-link text-white/75 hover:text-white text-sm font-medium tracking-wide transition-colors whitespace-nowrap"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden xl:flex items-center gap-4">
           <a
-            href="https://www.emukellef.com.tr"
+            href="https://msonet.emukellef.org/emukellef/"
             target="_blank"
             rel="noopener noreferrer"
-            className="emukellef-btn flex items-center gap-2 px-5 py-2.5 rounded-sm text-xs font-bold text-white tracking-widest uppercase"
+            className="emukellef-btn flex items-center gap-2 px-5 py-2.5 rounded-sm text-xs font-bold text-white tracking-widest uppercase whitespace-nowrap"
           >
             <ExternalLink size={12} />
             E-Mükellef Girişi
           </a>
         </div>
 
-        <button className="lg:hidden text-white p-2" onClick={() => setMenuOpen(!menuOpen)}>
+        <button className="xl:hidden text-white p-2" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {menuOpen && (
         <div className="lg:hidden border-t border-white/10" style={{ background: "var(--navy)" }}>
-          <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-4">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-white/80 hover:text-white py-2 text-sm font-medium border-b border-white/5"
+                className="text-white/80 hover:text-white py-3 text-sm font-medium border-b border-white/5"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
             <a
-              href="https://www.emukellef.com.tr"
+              href="https://msonet.emukellef.org/emukellef/"
               target="_blank"
               rel="noopener noreferrer"
               className="emukellef-btn flex items-center justify-center gap-2 px-5 py-3 rounded text-xs font-bold text-white mt-2 tracking-widest uppercase"

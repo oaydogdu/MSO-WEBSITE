@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import { ClientLogo } from "@/data/clients";
 
 export default function LogoMarquee({ clients }: { clients: ClientLogo[] }) {
@@ -10,12 +11,15 @@ export default function LogoMarquee({ clients }: { clients: ClientLogo[] }) {
     >
       <div
         className="marquee-track flex w-max"
-        style={{ animationDuration: `${clients.length * 6}s` }}
+        style={{
+          "--marquee-duration-desktop": `${clients.length * 6}s`,
+          "--marquee-duration-mobile": `${clients.length * 3}s`,
+        } as CSSProperties}
       >
         {track.map((client, i) => (
           <div
             key={`${client.name}-${i}`}
-            className="flex flex-col items-center justify-center shrink-0 w-56 h-40 md:w-64 md:h-44 mx-4 px-6 py-6"
+            className="flex flex-col items-center justify-center shrink-0 w-56 h-48 md:w-64 md:h-44 mx-4 px-6 py-6"
             style={{ border: "1px solid rgba(10,22,40,0.08)" }}
           >
             <Image
@@ -27,7 +31,7 @@ export default function LogoMarquee({ clients }: { clients: ClientLogo[] }) {
               style={client.scale ? { transform: `scale(${client.scale})` } : undefined}
             />
             <p
-              className="mt-4 text-center text-[11px] font-semibold tracking-wide uppercase leading-snug"
+              className="mt-4 text-center text-[11px] font-semibold tracking-wide uppercase leading-snug line-clamp-3 md:line-clamp-2"
               style={{ color: "var(--navy)", opacity: 0.55 }}
             >
               {client.name}

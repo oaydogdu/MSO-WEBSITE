@@ -3,6 +3,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 
 const services = [
   {
+    slug: "vergi-danismanligi",
     icon: TrendingUp,
     title: "Vergi Danışmanlığı",
     desc: "Mali yükümlülüklerinizi en doğru şekilde yerine getirmeniz için kapsamlı vergi danışmanlığı hizmetleri sunuyoruz.",
@@ -10,6 +11,7 @@ const services = [
     featured: true,
   },
   {
+    slug: "muhasebe-diskaynak",
     icon: BookOpen,
     title: "Muhasebe & Dışkaynak",
     desc: "İşletmenizin finansal süreçlerini profesyonel kadromuzla etkin ve verimli şekilde yönetiyoruz.",
@@ -17,14 +19,16 @@ const services = [
     featured: true,
   },
   {
+    slug: "denetim-guvence",
     icon: Shield,
     title: "Denetim & Güvence",
-    desc: "Aksis Denetim ortaklığımız aracılığıyla bağımsız ve güvenilir denetim hizmetleri sunuyoruz.",
+    desc: "AKSİS Uluslararası Bağımsız Denetim A.Ş. ortaklığımız aracılığıyla bağımsız ve güvenilir denetim hizmetleri sunuyoruz.",
     items: ["Bağımsız Denetim", "İç Denetim", "Finansal Tablo Denetimi", "Uyum Denetimi", "SPK Denetimi"],
-    partner: "Aksis Denetim ortaklığı ile sunulmaktadır.",
+    partner: "AKSİS Uluslararası Bağımsız Denetim A.Ş. ortaklığı ile sunulmaktadır.",
     featured: false,
   },
   {
+    slug: "finansal-danismanlik",
     icon: BarChart3,
     title: "Finansal Danışmanlık",
     desc: "Şirketinizin büyüme ve dönüşüm süreçlerinde stratejik finansal danışmanlık hizmetleri sağlıyoruz.",
@@ -32,6 +36,7 @@ const services = [
     featured: false,
   },
   {
+    slug: "kurumsal-danismanlik",
     icon: Users,
     title: "Kurumsal Danışmanlık",
     desc: "İşletmenizin kurumsal yapısını güçlendirmek ve sürdürülebilir büyüme sağlamak için stratejik destek sunuyoruz.",
@@ -39,6 +44,7 @@ const services = [
     featured: false,
   },
   {
+    slug: "hukuk-mevzuat-uyumu",
     icon: Scale,
     title: "Hukuk & Mevzuat Uyumu",
     desc: "Ticari faaliyetlerinizin yasal çerçevede yürütülmesi için hukuki danışmanlık ve mevzuat uyum hizmetleri sunuyoruz.",
@@ -51,7 +57,7 @@ export default function HizmetlerimizPage() {
   return (
     <>
       <section
-        className="pt-40 pb-24 relative"
+        className="pt-28 pb-14 md:pt-40 md:pb-24 relative"
         style={{ background: "linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%)" }}
       >
         <div className="max-w-7xl mx-auto px-6">
@@ -65,21 +71,21 @@ export default function HizmetlerimizPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <AnimatedSection className="mb-16">
+          <AnimatedSection className="mb-8 md:mb-16">
             <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "var(--gold)" }}>Öne Çıkan Hizmetler</p>
             <h2 className="font-display text-3xl font-bold gold-line" style={{ color: "var(--navy)" }}>Ana Hizmet Alanlarımız</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4 md:gap-8 md:mb-8">
             {services.filter(s => s.featured).map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.1}>
-                <div className="service-card bg-white rounded-2xl p-10 shadow-sm h-full">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8" style={{ background: "var(--navy)" }}>
+                <div id={s.slug} className="service-card bg-white rounded-2xl p-6 md:p-10 shadow-sm h-full scroll-mt-28">
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 md:mb-8" style={{ background: "var(--navy)" }}>
                     <s.icon size={28} style={{ color: "var(--gold)" }} />
                   </div>
-                  <h3 className="font-display text-2xl font-bold mb-4" style={{ color: "var(--navy)" }}>{s.title}</h3>
-                  <p className="text-gray-500 leading-relaxed mb-8">{s.desc}</p>
+                  <h3 className="font-display text-2xl font-bold mb-3 md:mb-4" style={{ color: "var(--navy)" }}>{s.title}</h3>
+                  <p className="text-gray-500 leading-relaxed mb-4 md:mb-8">{s.desc}</p>
                   <ul className="space-y-3">
                     {s.items.map(item => (
                       <li key={item} className="flex items-center gap-3 text-sm text-gray-600">
@@ -93,19 +99,19 @@ export default function HizmetlerimizPage() {
             ))}
           </div>
 
-          <AnimatedSection className="mb-16 mt-24">
+          <AnimatedSection className="mb-8 mt-12 md:mb-16 md:mt-24">
             <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "var(--gold)" }}>Diğer Hizmetler</p>
             <h2 className="font-display text-3xl font-bold gold-line" style={{ color: "var(--navy)" }}>Tüm Hizmet Alanlarımız</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {services.filter(s => !s.featured).map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
-                <div className="service-card bg-white rounded-xl p-8 shadow-sm h-full">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: "rgba(10,22,40,0.06)" }}>
+                <div id={s.slug} className="service-card bg-white rounded-xl p-5 md:p-8 shadow-sm h-full scroll-mt-28">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 md:mb-6" style={{ background: "rgba(10,22,40,0.06)" }}>
                     <s.icon size={22} style={{ color: "var(--navy)" }} />
                   </div>
-                  <h3 className="font-display text-lg font-bold mb-3" style={{ color: "var(--navy)" }}>{s.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-6">{s.desc}</p>
+                  <h3 className="font-display text-lg font-bold mb-2 md:mb-3" style={{ color: "var(--navy)" }}>{s.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-3 md:mb-6">{s.desc}</p>
                   {s.partner && (
                     <p className="text-xs italic mb-4" style={{ color: "var(--gold)" }}>* {s.partner}</p>
                   )}

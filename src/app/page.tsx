@@ -5,14 +5,15 @@ import AnimatedSection from "@/components/AnimatedSection";
 import CountUp from "@/components/CountUp";
 import LogoMarquee from "@/components/LogoMarquee";
 import { clients } from "@/data/clients";
+import { articles } from "@/data/articles";
 
 const services = [
-  { icon: TrendingUp, title: "Vergi Danışmanlığı", desc: "Kurumlar vergisi, KDV, transfer fiyatlandırması ve vergi uyum hizmetleri ile mali yükümlülüklerinizi güvence altına alıyoruz.", href: "/hizmetlerimiz" },
-  { icon: BookOpen, title: "Muhasebe & Dışkaynak", desc: "Muhasebe, bordro yönetimi, mali raporlama ve CFO dışkaynak hizmetleriyle işletmenizin finansal süreçlerini yönetiyoruz.", href: "/hizmetlerimiz" },
-  { icon: Shield, title: "Denetim & Güvence", desc: "Aksis Denetim ortaklığımız aracılığıyla bağımsız denetim, iç denetim ve SPK denetimi hizmetleri sunuyoruz.", href: "/hizmetlerimiz" },
-  { icon: BarChart3, title: "Finansal Danışmanlık", desc: "Şirket birleşme & satın alma, değerleme, yeniden yapılandırma ve due diligence süreçlerinde yanınızdayız.", href: "/hizmetlerimiz" },
-  { icon: Scale, title: "Hukuk & Mevzuat", desc: "Ticaret hukuku danışmanlığı, mevzuat uyum hizmetleri ve sözleşme yönetimi alanlarında kapsamlı destek sağlıyoruz.", href: "/hizmetlerimiz" },
-  { icon: Users, title: "Kurumsal Danışmanlık", desc: "Stratejik yönetim, risk yönetimi ve kurumsal yönetim alanlarında işletmenizin sürdürülebilir büyümesine katkı sağlıyoruz.", href: "/hizmetlerimiz" },
+  { icon: TrendingUp, title: "Vergi Danışmanlığı", desc: "Kurumlar vergisi, KDV, transfer fiyatlandırması ve vergi uyum hizmetleri ile mali yükümlülüklerinizi güvence altına alıyoruz.", href: "/hizmetlerimiz#vergi-danismanligi" },
+  { icon: BookOpen, title: "Muhasebe & Dışkaynak", desc: "Muhasebe, bordro yönetimi, mali raporlama ve CFO dışkaynak hizmetleriyle işletmenizin finansal süreçlerini yönetiyoruz.", href: "/hizmetlerimiz#muhasebe-diskaynak" },
+  { icon: Shield, title: "Denetim & Güvence", desc: "AKSİS Uluslararası Bağımsız Denetim A.Ş. ortaklığımız aracılığıyla bağımsız denetim, iç denetim ve SPK denetimi hizmetleri sunuyoruz.", href: "/hizmetlerimiz#denetim-guvence" },
+  { icon: BarChart3, title: "Finansal Danışmanlık", desc: "Şirket birleşme & satın alma, değerleme, yeniden yapılandırma ve due diligence süreçlerinde yanınızdayız.", href: "/hizmetlerimiz#finansal-danismanlik" },
+  { icon: Users, title: "Kurumsal Danışmanlık", desc: "Stratejik yönetim, risk yönetimi ve kurumsal yönetim alanlarında işletmenizin sürdürülebilir büyümesine katkı sağlıyoruz.", href: "/hizmetlerimiz#kurumsal-danismanlik" },
+  { icon: Scale, title: "Hukuk & Mevzuat Uyumu", desc: "Ticaret hukuku danışmanlığı, mevzuat uyum hizmetleri ve sözleşme yönetimi alanlarında kapsamlı destek sağlıyoruz.", href: "/hizmetlerimiz#hukuk-mevzuat-uyumu" },
 ];
 
 const stats = [
@@ -60,6 +61,15 @@ export default function HomePage() {
           <div className="absolute" style={{ top: 0, right: "28%", width: "1px", height: "100%", background: "linear-gradient(to bottom, transparent, rgba(201,168,76,0.2) 40%, rgba(201,168,76,0.1) 70%, transparent)" }} />
           <div className="particle absolute rounded-full" style={{ width: 500, height: 500, top: "-10%", right: "-5%", background: "radial-gradient(circle, rgba(74,159,212,0.07) 0%, transparent 70%)", animationDuration: "8s" }} />
           <div className="particle absolute rounded-full" style={{ width: 300, height: 300, bottom: "5%", left: "5%", background: "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)", animationDuration: "6s", animationDelay: "2s" }} />
+          <Image
+            src="/logo-full.png"
+            alt=""
+            width={1600}
+            height={897}
+            unoptimized
+            className="absolute select-none"
+            style={{ top: "50%", left: "50%", width: "1600px", height: "auto", transform: "translate(-50%, -50%)", opacity: 0.04 }}
+          />
         </div>
 
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 pt-28 pb-20 relative z-10 w-full">
@@ -118,7 +128,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── STATS ─── */}
-      <section className="py-16 border-b" style={{ background: "var(--navy)", borderColor: "rgba(201,168,76,0.1)" }}>
+      <section className="py-8 md:py-16 border-b" style={{ background: "var(--navy)", borderColor: "rgba(201,168,76,0.1)" }}>
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {stats.map((stat) => (
@@ -134,13 +144,13 @@ export default function HomePage() {
       </section>
 
       {/* ─── CLIENTS ─── */}
-      <section className="py-28 bg-white border-b border-gray-100 relative overflow-hidden">
+      <section className="py-14 md:py-28 bg-white border-b border-gray-100 relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent)" }} />
         <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
           <AnimatedSection>
             <p className="text-sm md:text-base font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "var(--gold)" }}>Referanslarımız</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold gold-line inline-block" style={{ color: "var(--navy)" }}>
-              Güvenle Hizmet Verdiğimiz Kurumlar
+              Güvenle Hizmet Verdiğimiz Kurumların Bazıları
             </h2>
           </AnimatedSection>
         </div>
@@ -150,9 +160,9 @@ export default function HomePage() {
       </section>
 
       {/* ─── SERVICES ─── */}
-      <section className="py-28" style={{ background: "#f8f9fa" }}>
+      <section className="py-14 md:py-28" style={{ background: "#f8f9fa" }}>
         <div className="max-w-[1400px] mx-auto px-8">
-          <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+          <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-20 gap-6">
             <div>
               <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "var(--gold)" }}>Hizmetlerimiz</p>
               <h2 className="font-display font-bold leading-tight gold-line" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "var(--navy)" }}>
@@ -163,16 +173,17 @@ export default function HomePage() {
               Tüm Hizmetler <ArrowRight size={14} />
             </Link>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
             {services.map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.08}>
-                <div className="service-card bg-white p-10 shadow-sm border border-gray-100 h-full">
-                  <div className="w-12 h-12 flex items-center justify-center mb-8 border" style={{ borderColor: "rgba(10,22,40,0.1)" }}>
-                    <s.icon size={20} style={{ color: "var(--navy)" }} />
+                <div className="service-card bg-white p-4 md:p-10 shadow-sm border border-gray-100 h-full">
+                  <div className="w-9 h-9 md:w-12 md:h-12 flex items-center justify-center mb-3 md:mb-8 border" style={{ borderColor: "rgba(10,22,40,0.1)" }}>
+                    <s.icon size={16} className="md:hidden" style={{ color: "var(--navy)" }} />
+                    <s.icon size={20} className="hidden md:block" style={{ color: "var(--navy)" }} />
                   </div>
-                  <h3 className="font-display font-semibold text-xl mb-4" style={{ color: "var(--navy)" }}>{s.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-8">{s.desc}</p>
-                  <Link href={s.href} className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase transition-colors" style={{ color: "var(--gold)" }}>
+                  <h3 className="font-display font-semibold text-sm md:text-xl mb-2 md:mb-4 leading-snug" style={{ color: "var(--navy)" }}>{s.title}</h3>
+                  <p className="hidden md:block text-gray-400 text-sm leading-relaxed mb-8">{s.desc}</p>
+                  <Link href={s.href} className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors" style={{ color: "var(--gold)" }}>
                     Detaylı Bilgi <ArrowRight size={12} />
                   </Link>
                 </div>
@@ -183,35 +194,35 @@ export default function HomePage() {
       </section>
 
       {/* ─── ABOUT ─── */}
-      <section className="py-28" style={{ background: "var(--navy)" }}>
+      <section className="py-14 md:py-28" style={{ background: "var(--navy)" }}>
         <div className="max-w-[1400px] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
             <AnimatedSection direction="left">
-              <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-6" style={{ color: "var(--gold)" }}>Hakkımızda</p>
-              <h2 className="font-display font-bold text-white mb-8 leading-tight" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}>
+              <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-3 lg:mb-6" style={{ color: "var(--gold)" }}>Hakkımızda</p>
+              <h2 className="font-display font-bold text-white mb-4 lg:mb-8 leading-tight" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}>
                 50 Yılı Aşkın<br />Mesleki Birikim
               </h2>
-              <p className="text-white/50 leading-relaxed mb-6 text-lg">
+              <p className="text-white/50 leading-relaxed mb-3 lg:mb-6 text-lg">
                 1971 yılından bu yana edindiğimiz derin uzmanlık ve güven ile Türkiye&apos;nin önde gelen mali müşavirlik firmalarından biri olma yolculuğumuzu kararlılıkla sürdürüyoruz.
               </p>
-              <p className="text-white/40 leading-relaxed mb-10 text-sm">
+              <p className="text-white/40 leading-relaxed mb-5 lg:mb-10 text-sm">
                 TÜRMOB üyesi, bağımsız denetim yetkisine sahip uzman kadromuzla küçük işletmelerden büyük kurumlara kadar her ölçekte işletmeye hizmet veriyoruz.
               </p>
               <Link href="/hakkimizda" className="flex items-center gap-3 text-xs font-bold tracking-widest uppercase" style={{ color: "var(--gold)" }}>
                 Daha Fazla Bilgi <ArrowRight size={12} />
               </Link>
             </AnimatedSection>
-            <AnimatedSection direction="right">
-              <div className="grid grid-cols-2 gap-4">
+            <AnimatedSection direction="right" className="min-w-0">
+              <div className="grid grid-cols-2 gap-3 lg:gap-4">
                 {[
                   { icon: Award, title: "TÜRMOB Üyesi", desc: "Serbest Muhasebeciler Mali Müşavirler Odası onaylı" },
                   { icon: Shield, title: "Bağımsız Denetçi", desc: "Her iki ortağımız denetim yetkisine sahip" },
                   { icon: Users, title: "11 Uzman", desc: "Alanında deneyimli profesyonel kadro" },
                   { icon: MapPin, title: "Türkiye Geneli", desc: "Tüm Türkiye'de kesintisiz hizmet" },
                 ].map((item) => (
-                  <div key={item.title} className="p-7" style={{ border: "1px solid rgba(201,168,76,0.12)", background: "rgba(255,255,255,0.02)" }}>
-                    <item.icon size={20} className="mb-4" style={{ color: "var(--gold)" }} />
-                    <h4 className="text-white font-semibold text-sm mb-2">{item.title}</h4>
+                  <div key={item.title} className="p-4 lg:p-7" style={{ border: "1px solid rgba(201,168,76,0.12)", background: "rgba(255,255,255,0.02)" }}>
+                    <item.icon size={20} className="mb-2 lg:mb-4" style={{ color: "var(--gold)" }} />
+                    <h4 className="text-white font-semibold text-sm mb-1 lg:mb-2">{item.title}</h4>
                     <p className="text-white/30 text-xs leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
@@ -222,9 +233,9 @@ export default function HomePage() {
       </section>
 
       {/* ─── SECTORS ─── */}
-      <section className="py-28 bg-white">
+      <section className="py-14 md:py-28 bg-white">
         <div className="max-w-[1400px] mx-auto px-8">
-          <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+          <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-20 gap-6">
             <div>
               <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "var(--gold)" }}>Sektörler</p>
               <h2 className="font-display font-bold leading-tight gold-line" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "var(--navy)" }}>
@@ -238,11 +249,11 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: "rgba(10,22,40,0.06)" }}>
             {sectors.map((s, i) => (
               <AnimatedSection key={s} delay={i * 0.07}>
-                <div className="sector-card flex items-center gap-6 p-8 bg-white">
-                  <span className="text-3xl font-display font-bold shrink-0 w-10" style={{ color: "rgba(10,22,40,0.08)" }}>
+                <div className="group flex items-center gap-6 p-8 bg-white transition-all duration-300 hover:bg-[var(--navy)] hover:shadow-xl hover:z-10 relative">
+                  <span className="text-3xl font-display font-bold shrink-0 w-10 transition-colors duration-300 text-[rgba(10,22,40,0.08)] group-hover:text-[var(--gold)]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-medium text-sm" style={{ color: "var(--navy)" }}>{s}</span>
+                  <span className="font-medium text-sm transition-colors duration-300 text-[var(--navy)] group-hover:text-white">{s}</span>
                 </div>
               </AnimatedSection>
             ))}
@@ -251,7 +262,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── E-MUKELLEF ─── */}
-      <section className="py-28 relative overflow-hidden" style={{ background: "#060d1a" }}>
+      <section className="py-14 md:py-28 relative overflow-hidden" style={{ background: "#060d1a" }}>
         <div className="absolute inset-0 pointer-events-none">
           <svg className="absolute inset-0 w-full h-full"><defs><pattern id="grid2" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(201,168,76,0.04)" strokeWidth="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid2)"/></svg>
           <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 60%)" }} />
@@ -265,33 +276,56 @@ export default function HomePage() {
             <p className="text-white/40 leading-relaxed mb-12 text-lg max-w-xl mx-auto">
               Mali süreçlerinizi dijital ortamda kolayca yönetin. Belgelerinize, bildirimlerinize ve mali tablolarınıza her yerden ulaşın.
             </p>
-            <a href="https://www.emukellef.com.tr" target="_blank" rel="noopener noreferrer" className="emukellef-btn inline-flex items-center gap-3 px-12 py-5 text-white font-bold text-xs tracking-[0.3em] uppercase">
+            <a href="https://msonet.emukellef.org/emukellef/" target="_blank" rel="noopener noreferrer" className="emukellef-btn inline-flex items-center gap-3 px-12 py-5 text-white font-bold text-xs tracking-[0.3em] uppercase">
               <ExternalLink size={14} />
               E-Mükellef&apos;e Giriş Yapın
             </a>
+            <p className="text-white/30 text-sm mt-6">
+              Şifrenizi unuttuysanız veya henüz bir hesabınız yoksa,{" "}
+              <Link href="/iletisim" className="underline hover:text-white transition-colors" style={{ color: "var(--gold)" }}>
+                bizimle iletişime geçin
+              </Link>.
+            </p>
           </div>
         </AnimatedSection>
       </section>
 
-      {/* ─── CTA ─── */}
-      <section className="py-28" style={{ background: "#f8f9fa" }}>
+      {/* ─── PUBLICATIONS TEASER ─── */}
+      <section className="py-12 md:py-24 bg-white border-b border-gray-100">
         <div className="max-w-[1400px] mx-auto px-8">
-          <AnimatedSection className="flex flex-col lg:flex-row lg:items-center justify-between gap-12">
+          <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
-              <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "var(--gold)" }}>İletişim</p>
-              <h2 className="font-display font-bold leading-tight" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "var(--navy)" }}>
-                Bugün Bir<br />Adım Atın
+              <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "var(--gold)" }}>Bilgi Birikimimiz</p>
+              <h2 className="font-display font-bold" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--navy)" }}>
+                Yayınlarımız
               </h2>
             </div>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link href="/iletisim" className="flex items-center gap-3 px-10 py-5 text-xs font-bold text-white tracking-[0.15em] uppercase transition-all hover:translate-y-[-2px]" style={{ background: "var(--navy)" }}>
-                İletişime Geçin <ArrowRight size={16} />
-              </Link>
-              <a href="tel:+902125336969" className="flex items-center gap-3 px-10 py-5 text-xs font-bold tracking-[0.15em] uppercase border-2 transition-all" style={{ borderColor: "var(--navy)", color: "var(--navy)" }}>
-                +90 212 533 69 69
-              </a>
-            </div>
+            <Link
+              href="/yayinlarimiz"
+              className="inline-flex items-center gap-3 text-xs font-bold tracking-widest uppercase"
+              style={{ color: "var(--navy)" }}
+            >
+              Tümünü Gör <ArrowRight size={12} />
+            </Link>
           </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {articles.slice(0, 3).map((article, i) => (
+              <AnimatedSection key={article.slug} delay={i * 0.1}>
+                <Link href={`/yayinlarimiz/${article.slug}`} className="service-card group block bg-white rounded-2xl border border-gray-100 shadow-sm p-6 h-full">
+                  <p className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "var(--gold)" }}>
+                    {article.author} · {article.date}
+                  </p>
+                  <h3 className="font-display text-lg font-bold mb-3 leading-snug transition-colors group-hover:text-[var(--gold)]" style={{ color: "var(--navy)" }}>
+                    {article.title}
+                  </h3>
+                  <p className="hidden md:block text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">{article.excerpt}</p>
+                  <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase" style={{ color: "var(--navy)" }}>
+                    Devamını Oku <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -324,6 +358,28 @@ export default function HomePage() {
             >
               Miras &amp; Vizyonu Keşfedin <ArrowRight size={12} />
             </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ─── CTA ─── */}
+      <section className="py-14 md:py-28" style={{ background: "#f8f9fa" }}>
+        <div className="max-w-[1400px] mx-auto px-8">
+          <AnimatedSection className="flex flex-col lg:flex-row lg:items-center justify-between gap-12">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "var(--gold)" }}>İletişim</p>
+              <h2 className="font-display font-bold leading-tight" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "var(--navy)" }}>
+                Bugün Bir<br />Adım Atın
+              </h2>
+            </div>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/iletisim" className="flex items-center gap-3 px-10 py-5 text-xs font-bold text-white tracking-[0.15em] uppercase transition-all hover:translate-y-[-2px]" style={{ background: "var(--navy)" }}>
+                İletişime Geçin <ArrowRight size={16} />
+              </Link>
+              <a href="tel:+902125336969" className="flex items-center gap-3 px-10 py-5 text-xs font-bold tracking-[0.15em] uppercase border-2 transition-all" style={{ borderColor: "var(--navy)", color: "var(--navy)" }}>
+                +90 212 533 69 69
+              </a>
+            </div>
           </AnimatedSection>
         </div>
       </section>

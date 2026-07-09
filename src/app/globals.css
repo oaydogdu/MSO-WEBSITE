@@ -11,7 +11,10 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   font-family: var(--font-dm), 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -60,10 +63,6 @@ body {
   box-shadow: 0 20px 40px rgba(10,22,40,0.12);
 }
 
-.sector-card { transition: all 0.3s; }
-.sector-card:hover { background: var(--navy); color: white; }
-.sector-card:hover .sector-num { color: var(--gold); }
-
 .team-card { transition: all 0.3s; }
 .team-card:hover {
   transform: translateY(-4px);
@@ -107,6 +106,12 @@ body {
   animation-name: marquee;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  animation-duration: var(--marquee-duration-desktop);
+}
+@media (max-width: 767px) {
+  .marquee-track {
+    animation-duration: var(--marquee-duration-mobile);
+  }
 }
 .marquee-track:hover {
   animation-play-state: paused;
