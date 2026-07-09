@@ -4,7 +4,31 @@
 > önce burayı oku, kod tabanını baştan taramaya gerek yok. Session sonunda
 > (kayda değer bir değişiklik olduysa) bu dosyayı güncelle.
 
-## Durum: SİTE CANLIDA — deployment TAMAMLANDI (https://msodenetim.com.tr)
+## Durum: SİTE CANLIDA + production denetimi TAMAMLANDI — hiçbir açık konu yok
+
+**2026-07-09 (aynı gün, devam): Kullanıcı "kusursuz çalışsın" isteğiyle canlı
+site kapsamlı denetimden geçirildi** (localhost değil, gerçek
+`msodenetim.com.tr` üzerinde `curl` ile): 9 sayfanın tamamı 200, tüm görseller
+(takım fotoğrafları, kitap kapakları, müşteri logoları) 200, dış bağlantılar
+(E-Mükellef, Kitapyurdu, Google Maps embed) çalışıyor, 404 sayfası doğru,
+güvenlik header'ları tüm sayfalarda tutarlı ve production CSP'de `unsafe-eval`
+yok (dev-only fix doğrulandı), SSL her iki domain'de geçerli.
+**Bulunan tek (kırık olmayan, iyileştirme niteliğinde) tutarsızlık:** kod
+`sitemap.ts`/`robots.ts`/`layout.tsx metadataBase` içinde apex domain'i
+(`msodenetim.com.tr`, www'siz) esas alıyordu ama Vercel `www`'yi birincil
+seçmişti, apex ona 308 ile yönleniyordu — sitemap/OG görseller gereksiz bir
+yönlendirme adımından geçiyordu. **Düzeltildi:** Vercel Domains ayarından
+apex `Production`a bağlandı, `www` apex'e 308 ile yönlendirildi (kod
+değişmedi, sadece Vercel domain ayarı). `curl` ile doğrulandı: apex artık
+doğrudan `200`, sitemap/robots yönlendirmesiz geliyor.
+
+**Proje uçtan uca tamamlandı, production'da doğrulanmış hiçbir açık/bilinen
+sorun yok.** Yeni session'da olası konular: küçük içerik/metin güncellemeleri,
+yeni makale ekleme (`src/data/articles.ts`), ya da ertelenen hero video
+denemesi (Higgsfield hesap sorunu çözülürse). Kod tabanını baştan taramaya
+gerek yok, buradan devam et.
+
+## Durum (önceki): SİTE CANLIDA — deployment TAMAMLANDI (https://msodenetim.com.tr)
 
 **2026-07-09 (aynı gün, devam): Vercel deployment + DNS bağlantısı tamamlandı.**
 - Proje Vercel'e bağlandı (`oaydogdu/MSO-WEBSITE` GitHub reposundan, proje adı
