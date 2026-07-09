@@ -4,7 +4,7 @@
 > önce burayı oku, kod tabanını baştan taramaya gerek yok. Session sonunda
 > (kayda değer bir değişiklik olduysa) bu dosyayı güncelle.
 
-## Durum: İçerik ve responsive işi TAMAMLANDI — sıradaki adım domain + deployment
+## Durum: Domain SATIN ALINDI + güvenlik sertleştirmesi TAMAMLANDI — sıradaki adım Vercel deployment + DNS
 
 Build/lint/type-check temiz, `npm run build` de dahil (2026-07-09'da tam bir
 production build denemesi yapıldı, sorunsuz). **2026-07-09'da kullanıcı
@@ -17,12 +17,41 @@ fotoğrafları, SEO dosyaları vb., 36 dosya) tek commit'te kaydedildi.**
 temiz.** Bundan sonraki commit'ler için de **sormadan commit/push ATMA**
 kuralı geçerli.
 
-**Yeni session buradan devam etmeli:** Site içerik/tasarım/QA tarafı bitti,
-kod tabanını baştan taramaya gerek yok, GitHub'a da push edildi.
-**Sıradaki ve tek açık konu: domain satın alma (`mso.com.tr` /
-`msosmmm.com.tr` öneriliyor, `isimtescil.net` üzerinden) ve ardından
-Vercel'e deployment (artık bir GitHub reposu olduğu için Vercel'i doğrudan
-bu repoya bağlamak mümkün)** — bkz. madde 22 sonu.
+**2026-07-09 (aynı gün, devam): Domain satın alındı — `msodenetim.com.tr`**
+(isimtescil.net üzerinden, `mso.com.tr`/`msosmmm.com.tr` önerileri yerine bu
+seçildi). Ardından beşinci commit atıldı (`91063ed`, kullanıcı onayıyla,
+push edildi):
+- **Domain düzeltmesi:** `layout.tsx` (`metadataBase`), `sitemap.ts`,
+  `robots.ts` içindeki eski placeholder `https://msonet.org` →
+  `https://msodenetim.com.tr` yapıldı (SEO/OG kartları artık doğru domain'e
+  işaret ediyor). `msonet.org`, kullanıcının site dışı e-posta domain'i
+  (`aliaydogdu@msonet.org`) — o adres olduğu gibi kalıyor, siteyle bağlantısı
+  yok, bu domain üzerinden e-posta kullanılmayacak (SPF/DKIM/DMARC bilinçli
+  olarak atlandı).
+- **Güvenlik header'ları** (`next.config.ts`, `headers()`): CSP,
+  X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy,
+  HSTS eklendi. Prod build'de `-p 3099` ile ayrı porttan test edildi: header'lar
+  doğru dönüyor, İletişim sayfasındaki Google Maps iframe embed'i CSP'den
+  etkilenmedi (`frame-src https://www.google.com` eklendiği için).
+- **Dependabot** (`.github/dependabot.yml`) — haftalık npm paket güvenlik
+  açığı taraması eklendi.
+- **Güvenlik değerlendirmesi (kullanıcıya verilen cevap, referans için):**
+  Bu site statik/backend'siz bir kurumsal tanıtım sitesi (form/giriş/ödeme
+  yok) — WAF, pentest, rate-limiting gibi ağır önlemler gereksiz bulundu.
+  Vercel zaten HTTPS/SSL, DDoS/edge koruması sağlıyor. **İleride** bir form,
+  üyelik veya API eklenirse bu değerlendirme tekrar gözden geçirilmeli.
+
+**Yeni session buradan devam etmeli:** Site içerik/tasarım/QA/güvenlik tarafı
+bitti, kod tabanını baştan taramaya gerek yok, GitHub'a da push edildi
+(`91063ed`). **Sıradaki ve tek açık konu — Vercel deployment:**
+1. vercel.com → GitHub ile giriş → `oaydogdu/MSO-WEBSITE` reposunu import et
+   (env variable yok, ayar değişikliği gerekmiyor).
+2. Deploy sonrası Settings → Domains → `msodenetim.com.tr` + `www.` ekle.
+3. isimtescil.net DNS panelinden Vercel'in vereceği A kaydı (apex →
+   `76.76.21.21`) ve CNAME (`www` → `cname.vercel-dns.com`) kayıtlarını gir.
+4. SSL otomatik (Let's Encrypt), DNS yayılması dakikalar-saatler sürebilir.
+Kullanıcı henüz bu adımları yapmadı — bir sonraki session'da nerede kaldığını
+sor (Vercel hesabı açıldı mı, DNS kayıtları girildi mi).
 
 ## Yapı
 - Next.js 16 (App Router, Turbopack), Tailwind CSS 4, TypeScript, Framer Motion
