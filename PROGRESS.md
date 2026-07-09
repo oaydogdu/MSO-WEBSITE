@@ -4,7 +4,28 @@
 > önce burayı oku, kod tabanını baştan taramaya gerek yok. Session sonunda
 > (kayda değer bir değişiklik olduysa) bu dosyayı güncelle.
 
-## Durum: Domain SATIN ALINDI + güvenlik sertleştirmesi TAMAMLANDI — sıradaki adım Vercel deployment + DNS
+## Durum: Kapsamlı çoklu-cihaz QA TAMAMLANDI + kritik Navbar bug'ı düzeltildi — sıradaki adım Vercel deployment + DNS
+
+**2026-07-09 (aynı gün, devam): Tüm cihaz sınıflarında (mobil/masaüstü dışında
+tablet dikey/yatay, küçük telefon, büyük masaüstü) kapsamlı QA turu yapıldı**
+(kullanıcı "tüm cihazlarda sorunsuz çalışmalı" dedi). Kodda önce statik tarama
+yapıldı (tüm `hidden`/breakpoint çiftleri ve `grid-cols` kullanımları
+`grep` ile incelendi), ardından gerçek tarayıcıda 320px, 768px, 1024px,
+1279px, 1280px, 1920px genişliklerinde 9 sayfanın tamamı (taşma, kırık
+görsel, konsol hatası, mobil menü işlevi) test edildi.
+**Kritik bug bulundu ve düzeltildi (commit `bd2d88c`):** `Navbar.tsx`'te
+hamburger buton `xl:hidden` (1280px altı görünür) kullanırken açılan mobil
+menü içeriği `lg:hidden` (1024px altı görünür) kullanıyordu — **1024px–1279px
+arası** (tablet yatay, küçük laptop pencereleri, Surface gibi cihazlar)
+genişliklerde hamburger ikonu görünüyordu ama tıklanınca menü açılmıyordu,
+kullanıcı o aralıkta siteye hiç gezinemiyordu. Menü de `xl:hidden` yapılarak
+buton ile eşitlendi. Düzeltmeden sonra 320px'den 1920px'e kadar tüm
+genişliklerde 9 sayfa da temiz (overflowPx: 0, kırık görsel yok, konsol
+hatası yok, mobil menü her yerde doğru açılıp kapanıyor). **Artık masaüstü,
+mobil VE aradaki tüm cihaz sınıflarında (tablet, küçük/büyük ekranlar)
+deployment'a teknik bir engel yok.**
+
+## Durum (önceki): Domain SATIN ALINDI + güvenlik sertleştirmesi TAMAMLANDI — sıradaki adım Vercel deployment + DNS
 
 Build/lint/type-check temiz, `npm run build` de dahil (2026-07-09'da tam bir
 production build denemesi yapıldı, sorunsuz). **2026-07-09'da kullanıcı
