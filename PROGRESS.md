@@ -4,7 +4,29 @@
 > önce burayı oku, kod tabanını baştan taramaya gerek yok. Session sonunda
 > (kayda değer bir değişiklik olduysa) bu dosyayı güncelle.
 
-## Durum: SİTE CANLIDA + production denetimi TAMAMLANDI — hiçbir açık konu yok
+## Durum: PROJE TAMAMEN BİTTİ — site canlıda, Google Search Console kaydı da yapıldı
+
+**2026-07-09 (aynı gün, devam): SEO/Search Console kurulumu tamamlandı.**
+- Google Search Console'a **Domain property** olarak `msodenetim.com.tr`
+  eklendi, DNS TXT kaydıyla doğrulandı (isimtescil panelinde
+  `google-site-verification=...` TXT kaydı, Kayıt İsmi boş bırakılarak
+  eklendi — aynı "@ hatası" burada da çıktı, aynı çözüm işe yaradı).
+  "Ownership verified" onaylandı.
+- `https://msodenetim.com.tr/sitemap.xml` Search Console'a gönderildi,
+  **11 sayfa** doğru şekilde algılandı (8 statik sayfa + 3 makale — sitemap'teki
+  toplam sayıyla birebir eşleşiyor).
+- Not: isimtescil DNS tablosunda kök domain için aynı A kaydı (`216.198.79.1`)
+  yanlışlıkla iki kez listeleniyor (muhtemelen önceki bir deneme silinmeden
+  kalmış) — zararsız (ikisi de aynı doğru IP), ileride bir DNS temizliği
+  yapılırsa fazladan olanı silinebilir, acil değil.
+
+**Proje uçtan uca, SEO dahil tamamen bitti.** Yeni session'da olası konular:
+küçük içerik/metin güncellemeleri, yeni makale ekleme
+(`src/data/articles.ts`), Search Console'da zamanla indexleme/performans
+verisi takibi, ya da ertelenen hero video denemesi (Higgsfield hesap sorunu
+çözülürse). Kod tabanını baştan taramaya gerek yok, buradan devam et.
+
+## Durum (önceki): SİTE CANLIDA + production denetimi TAMAMLANDI — hiçbir açık konu yok
 
 **2026-07-09 (aynı gün, devam): Kullanıcı "kusursuz çalışsın" isteğiyle canlı
 site kapsamlı denetimden geçirildi** (localhost değil, gerçek
