@@ -84,7 +84,7 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="lg:hidden border-t border-white/10" style={{ background: "var(--navy)" }}>
+        <div className="xl:hidden border-t border-white/10" style={{ background: "var(--navy)" }}>
           <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col">
             {navLinks.map((link) => (
               <Link
