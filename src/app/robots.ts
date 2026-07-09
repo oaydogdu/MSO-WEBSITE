@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://msonet.org/sitemap.xml",
+    sitemap: "https://msodenetim.com.tr/sitemap.xml",
   };
 }

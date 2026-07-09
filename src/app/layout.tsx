@@ -22,7 +22,7 @@ const title = "MSO Denetim & S.M.M.M | Rakamların Ötesinde, Gerçek Değer.";
 const description = "1971'den bu yana mali müşavirlik, bağımsız denetim ve vergi danışmanlığı alanlarında Türkiye genelinde hizmet veren MSO Denetim ve Serbest Muhasebeci Mali Müşavirlik A.Ş.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://msonet.org"),
+  metadataBase: new URL("https://msodenetim.com.tr"),
   title,
   description,
   openGraph: {

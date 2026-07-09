@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/data/articles";
 
-const baseUrl = "https://msonet.org";
+const baseUrl = "https://msodenetim.com.tr";
 
 const staticRoutes = [
   "",
