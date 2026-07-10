@@ -32,7 +32,7 @@ const team = [
   { name: "Hatice Akbaş", title: "Serbest Muhasebeci Mali Müşavir", photo: "/team/hatice.jpg" },
   { name: "Ali Kemal Özdemir", title: "Muhasebe Uzmanı", photo: "/team/kemal.jpg" },
   { name: "Mustafa Zor", title: "Serbest Muhasebeci Mali Müşavir", photo: "/team/mustafa.jpg" },
-  { name: "Ceyda Güven", title: "Muhasebe Sorumlusu", photo: "/team/ceyda.jpg" },
+  { name: "Ceyda Güven", title: "Muhasebe Sorumlusu", photo: "/team/ceyda.jpg", photoScale: 1.08 },
   { name: "Beyza Aslan", title: "Muhasebe Sorumlusu", photo: "/team/beyza.jpg" },
   { name: "Tamer Turan", title: "Muhasebe Sorumlusu", photo: "/team/tamer.jpg" },
   { name: "Mert Aydoğdu", title: "IT Sorumlusu", photo: "/team/mert.jpg" },
@@ -164,7 +164,10 @@ export default function EkibimizPage() {
                       width={80}
                       height={80}
                       className="w-20 h-20 rounded-full object-cover object-top shrink-0 border-2"
-                      style={{ borderColor: "rgba(201,168,76,0.35)" }}
+                      style={{
+                        borderColor: "rgba(201,168,76,0.35)",
+                        transform: member.photoScale ? `scale(${member.photoScale})` : undefined,
+                      }}
                     />
                   ) : (
                     <div
