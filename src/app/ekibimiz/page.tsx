@@ -33,7 +33,7 @@ const team = [
   { name: "Ali Kemal Özdemir", title: "Muhasebe Uzmanı", photo: "/team/kemal.jpg" },
   { name: "Mustafa Zor", title: "Serbest Muhasebeci Mali Müşavir", photo: "/team/mustafa.jpg" },
   { name: "Ceyda Güven", title: "Muhasebe Sorumlusu", photo: "/team/ceyda.jpg" },
-  { name: "Beyza Arslan", title: "Muhasebe Sorumlusu", photo: "/team/beyza.jpg" },
+  { name: "Beyza Aslan", title: "Muhasebe Sorumlusu", photo: "/team/beyza.jpg" },
   { name: "Tamer Turan", title: "Muhasebe Sorumlusu", photo: "/team/tamer.jpg" },
   { name: "Mert Aydoğdu", title: "IT Sorumlusu", photo: "/team/mert.jpg" },
   { name: "Oğuzhan Aydoğdu", title: "Operasyon Direktörü", photo: "/team/oguzhan.jpg" },
