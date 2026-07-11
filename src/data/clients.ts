@@ -14,4 +14,9 @@ export const clients: ClientLogo[] = [
   { name: "EDA Dış Ticaret Uluslararası Taşımacılık ve Lojistik", logo: "/clients/eda.png" },
   { name: "Infinity Regenerative Clinic", logo: "/clients/infinity.png" },
   { name: "Etohum", logo: "/clients/etohum.png" },
+  { name: "KAGİDER", logo: "/clients/kagider.png" },
+  { name: "GYODER", logo: "/clients/gyoder.png" },
+  { name: "Şenola Tarım", logo: "/clients/senola.png" },
+  { name: "Otomatica", logo: "/clients/otomatica.png" },
+  { name: "AMBOSS", logo: "/clients/amboss.png" },
 ];
