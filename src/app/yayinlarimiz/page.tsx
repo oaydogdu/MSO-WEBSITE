@@ -44,7 +44,8 @@ export default function YayinlarimizPage() {
                       <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "var(--gold)" }}>{book.publisher}</span>
                     </div>
                     <p className="text-gray-400 text-xs mb-3">{book.subtitle}</p>
-                    <p className="text-gray-500 text-sm leading-relaxed flex-1">{book.desc}</p>
+                    <p className="text-gray-500 text-sm leading-relaxed flex-1 md:hidden">{book.desc}</p>
+                    <p className="hidden md:block text-gray-500 text-sm leading-relaxed flex-1">{book.descLong}</p>
                     <a
                       href={book.link}
                       target="_blank"
@@ -70,7 +71,7 @@ export default function YayinlarimizPage() {
             <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>Düşünce Yazıları</p>
             <h2 className="font-display text-3xl font-bold gold-line" style={{ color: "var(--navy)" }}>Makalelerimiz</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {articles.map((article, i) => (
               <AnimatedSection key={article.slug} delay={(i % 6) * 0.08}>
                 <Link href={`/yayinlarimiz/${article.slug}`} className="block h-full">
