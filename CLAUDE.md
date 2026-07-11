@@ -8,7 +8,7 @@ Kurumsal web sitesi. Next.js 16 (App Router, Turbopack) + Tailwind CSS 4 + TypeS
 **Marka:** Lacivert (`--navy #0a1628`) + gold (`--gold #c9a84c`) palet, Big 4 (KPMG/Deloitte/EY/PwC) esintili elit görünüm.
 Başlıklar: `font-display` (Cormorant Garamond, serif). Gövde metni: DM Sans.
 
-**Firma bilgileri, hizmetler, ekip, sektörler:** `../mso_website_bilgiler.md` dosyasında (proje dışında, masaüstünde) — tüm içerik kararları orada.
+**Firma bilgileri, hizmetler, ekip, sektörler:** [mso_website_bilgiler.md](./mso_website_bilgiler.md) dosyasında (proje içinde, repo'nun bir parçası) — tüm içerik kararları orada.
 
 **Detaylı ilerleme/durum günlüğü:** [PROGRESS.md](./PROGRESS.md) — her session başında önce bunu oku.
 

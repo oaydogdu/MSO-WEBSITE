@@ -4,7 +4,45 @@
 > önce burayı oku, kod tabanını baştan taramaya gerek yok. Session sonunda
 > (kayda değer bir değişiklik olduysa) bu dosyayı güncelle.
 
-## Durum: PROJE TAMAMEN BİTTİ — son cilalar da yapıldı, açık hiçbir konu yok
+## Durum: Canlı site üzerinde küçük içerik/düzen güncellemeleri devam ediyor (2026-07-11)
+
+**2026-07-11: Deployment sonrası kullanıcı geri bildirimleriyle bir dizi küçük
+güncelleme yapıldı, hepsi commit/push edilip production'da doğrulandı:**
+- Ekibimiz: "Beyza Arslan" → "Beyza Aslan" isim düzeltmesi; Ceyda Güven
+  fotoğrafına hafif yakınlaştırma (`photoScale: 1.08`, sadece onun kartı).
+- Yayınlarımız: Ali Pınar'ın "Arsa Satışı Karşılığı Gelir (Hasılat) Paylaşımı
+  Yöntemi ve Muhasebe Uygulamaları" makalesi eklendi (PDF'den tam metin
+  işlendi) — sadece `/yayinlarimiz`'de görünür, ana sayfa ve Miras & Vizyon
+  (Mehmet Sami Özeren filtresi) etkilenmez, bu kasıtlı.
+- Yayınlarımız sayfası (**sadece masaüstünde**, mobil/tablet aynı kaldı):
+  kitap kartlarında kısa `desc` yerine uzun `descLong` gösterilmeye başlandı
+  (miras-vizyon'daki aynı desen, `md:hidden` / `hidden md:block`); makale
+  grid'i 4. makale (Ali Pınar) eklenince masaüstünde 3 sütunda yalnız kalan
+  kart oluşturuyordu, `lg:grid-cols-3` kaldırılıp masaüstünde de 2 sütun (2x2)
+  kullanıldı.
+- Ekibimiz: Ali Pınar'ın özgeçmişi kullanıcının verdiği güncel metinle
+  (ilköğretim bilgisi, geçmiş idari görevler eklendi) değiştirildi.
+- Ana sayfa referans logo bandına 5 yeni müşteri eklendi: KAGİDER, GYODER,
+  Şenola Tarım, Otomatica, AMBOSS. **İşlem notları:** Otomatica'nın fotoğraf
+  (gökyüzü) arka planı Python/Pillow ile renk-mesafe maskeleme kullanılarak
+  şeffaflaştırıldı (Higgsfield `remove_background` aracı yine hesap bağlantı
+  hatası verdi — bilinen sorun, madde 2); Şenola'nın siyah arka planı chroma-key
+  ile şeffaflaştırıldı; Gyoder'deki aşırı beyaz boşluk kırpıldı; KAGİDER ve
+  AMBOSS zaten beyaz zeminliydi, doğrudan kullanıldı. Marquee hız formülü
+  (`logo sayısı × 6sn`) zaten orantılı olduğu için değiştirilmedi — logo
+  sayısı arttıkça tur süresi de artıyor, kişi başı hız sabit kalıyor.
+- `mso_website_bilgiler.md` artık proje **içinde** (repo'nun bir parçası,
+  commit edildi) — eskiden masaüstünde proje dışı bir dosyaydı, kullanıcı
+  konumunu değiştirdi. `CLAUDE.md` ve bu dosyadaki eski "proje dışı" referansı
+  güncellendi.
+- **Araç notu:** Preview server'da `window.scrollTo`/`scrollIntoView` çoğu
+  zaman görünürde hiç scroll yapmıyor gibi görünüyor (CSS `scroll-behavior:
+  smooth` ile birlikte tuhaf davranıyor) — çözüm: `behavior: 'instant'`
+  açıkça belirtmek. Ayrıca bazı ekran görüntüleri boş/beyaz geliyor olsa da
+  DOM/computed-style kontrolleri (opacity, getBoundingClientRect) doğruysa
+  bu sadece ekran görüntüsü aracının zamanlama sorunu, siteyle ilgili değil.
+
+## Durum (önceki): PROJE TAMAMEN BİTTİ — son cilalar da yapıldı, açık hiçbir konu yok
 
 **2026-07-09 (aynı gün, devam): İki küçük son iş yapıldı.**
 - **DNS ufak bir kaza + düzeltme:** Kullanıcı isimtescil panelinde mükerrer A
@@ -182,7 +220,7 @@ sor (Vercel hesabı açıldı mı, DNS kayıtları girildi mi).
 - Veri dosyaları: `src/data/clients.ts` (referanslar), `src/data/books.ts` (kitaplar,
   paylaşımlı: Miras&Vizyon + Yayınlarımız), `src/data/articles.ts` (makaleler,
   `ArticleBlock` discriminated union: heading/subheading/paragraph/list)
-- Firma bilgi kaynağı: `../mso_website_bilgiler.md` (proje dışı, masaüstünde)
+- Firma bilgi kaynağı: `mso_website_bilgiler.md` (2026-07-11'den beri proje içinde, repo'ya commit edildi — eskiden masaüstünde proje dışı bir dosyaydı)
 
 ## Tamamlanan işler (kronolojik)
 1. **İlk keşif + lint/build temizliği** — `react/no-unescaped-entities` (apostrof kaçırma),
