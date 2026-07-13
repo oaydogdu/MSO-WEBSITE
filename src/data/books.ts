@@ -30,6 +30,6 @@ export const books: Book[] = [
     descLong: "Girişimcilik, günlük hayatta sıkça kullanılan ama nadiren gerçek anlamıyla ele alınan bir kavramdır. GİRİŞ(İM), bu kavramı yalnızca cesaret ya da fikir sahibi olmakla sınırlamaz; matematikten psikolojiye, sosyolojiden ekonomiye uzanan disiplinler arası bir bakışla girişimcinin sahip olması gereken istek, ideal, ataklık ve amaca yönelme niteliklerini bir araya getirir. Bu kitap, girişimciliği hazır bir formül olarak sunmak yerine, girişim ruhunu besleyen düşünce sistematiğini ve bu ruhu harekete geçiren araç ve yöntemleri anlamlandırır.",
     link: "https://www.kitapyurdu.com/kitap/girisim-gelisim-icin-girisim/368485.html?manufacturer_id=180829",
     accent: "#8b5a2b",
-    cover: "/books/girisim-v2.jpg",
+    cover: "/books/girisim-v3.jpg",
   },
 ];
