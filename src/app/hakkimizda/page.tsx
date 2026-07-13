@@ -37,7 +37,7 @@ export default function HakkimizdaPage() {
                 1971 yılında kurulan MSO – ÖZEREN Müşavirlik, kuruluşundan bu yana konularında yetkinliklerini kanıtlamış çözüm ortaklarının katılımını sağlayarak mali müşavirlik alanında hizmet vermektedir.
               </p>
               <p className="text-gray-500 leading-relaxed mb-4 md:mb-6">
-                Yarım asrı aşan deneyimimiz boyunca binlerce işletmenin yanında yer alarak onların mali sorumluluklarını yasalar çerçevesinde en doğru şekilde yerine getirmelerine destek olduk.
+                Yarım asrı aşan deneyimimiz boyunca birçok işletmenin yanında yer alarak onların mali sorumluluklarını yasalar çerçevesinde en doğru şekilde yerine getirmelerine destek olduk.
               </p>
               <p className="text-gray-500 leading-relaxed">
                 Bugün MSO Denetim ve Serbest Muhasebeci Mali Müşavirlik Anonim Şirketi çatısı altında, 11 kişilik uzman kadromuz ve AKSİS Uluslararası Bağımsız Denetim A.Ş. ortaklığımızla Türkiye genelinde 29&apos;dan fazla sektörde hizmet vermeye devam ediyoruz.

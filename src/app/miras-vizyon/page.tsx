@@ -89,7 +89,7 @@ export default function MirasVizyonPage() {
                   Banka yıllarında girişimcilik ruhundan da ödün vermeyen Özeren, aynı dönemde bir reklam şirketi kurarak başarılı işlere imza atmıştır. Yine bu yıllarda, 1971 yılında kurulmuş ancak sınırlı bir müşteri portföyüyle faaliyet gösteren bugünkü şirketimizi devralmıştır. Kendi ifadesiyle amacı başlangıçta muhasebe değil daha çok müşavirlik yapmaktı; zamanla ve bir nevi zorunluluktan bu alana yönelerek MSO&apos;nun bugünkü temelini atmıştır — <strong style={{ color: "var(--navy)" }}>şirketimizin 1971 kuruluş tarihi de bu devralma hikâyesinden gelmektedir.</strong>
                 </p>
                 <p>
-                  1984 yılında bankacılık kariyerini noktalayıp kendini tamamen Serbest Muhasebeci ve Mali Müşavirliğe adayan Özeren, yıllar içinde yetiştirdiği çok sayıda öğrenci ve meslektaşıyla da iz bırakmıştır. Bugün bu isimlerin birçoğu Türkiye&apos;nin önde gelen şirketlerinde <strong style={{ color: "var(--navy)" }}>CEO, CFO ve üst düzey yönetici</strong> olarak görev yapmaktadır — mesleki mirasının ve eğitimci kimliğinin en somut göstergesi.
+                  1984 yılında bankacılık kariyerini noktalayıp kendini tamamen Serbest Muhasebeci ve Mali Müşavirliğe adayan Özeren, yıllar içinde yetiştirdiği çok sayıda öğrenci ve meslektaşıyla da iz bırakmıştır. Bugün bu isimlerin birçoğu Türkiye&apos;nin önde gelen şirketlerinde <strong style={{ color: "var(--navy)" }}>CEO, CFO ve üst düzey yönetici</strong> olarak görev yapmaktadır; bu da mesleki mirasının ve eğitimci kimliğinin en somut göstergesidir.
                 </p>
               </div>
             </AnimatedSection>
