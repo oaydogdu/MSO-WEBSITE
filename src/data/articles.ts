@@ -2,7 +2,9 @@ export type ArticleBlock =
   | { type: "heading"; text: string }
   | { type: "subheading"; text: string }
   | { type: "paragraph"; text: string }
-  | { type: "list"; items: string[] };
+  | { type: "list"; items: string[] }
+  | { type: "quote"; text: string }
+  | { type: "entry"; lines: { account: string; side: "debit" | "credit"; amount: string }[] };
 
 export interface Article {
   slug: string;
@@ -309,6 +311,75 @@ export const articles: Article[] = [
       { type: "paragraph", text: "Arsa satışı karşılığı gelir paylaşımı yönteminde ekonomik işlem, klasik kat karşılığı inşaat sözleşmelerinden farklı olarak bağımsız bölüm değişimine değil, arsa satış bedelinin bağımsız bölümlerin satışından elde edilen hasılat üzerinden belirlenmesine dayanmaktadır. Bu yöntemde arsa sahibi bağımsız bölüm edinmemekte; sözleşmede belirlenen paylaşım oranı çerçevesinde satış hasılatından pay almaktadır. İnşaatın finansmanı, yapımı ve satış organizasyonuna ilişkin yükümlülükler esas itibarıyla yüklenici tarafından üstlenilmekle birlikte; arsa sahibi de projenin onaylanması, satış fiyatlarının belirlenmesine ilişkin onay mekanizması, satış vaadi sözleşmelerinin tarafı olması, satış gelirlerinin izlenmesi ve sözleşmenin uygulanmasının denetlenmesi gibi önemli hak ve yükümlülüklere sahiptir. Bu yönüyle söz konusu sözleşmelerin hukuki ve ekonomik yapısı, klasik kat karşılığı inşaat sözleşmelerinden ve adi ortaklık ilişkisinden farklı özellikler taşımaktadır." },
       { type: "paragraph", text: "Bu farklılık, belge düzeni ile muhasebeleştirme sürecine de yansımaktadır. İnşaat süresince nihai alıcılardan tahsil edilen bedeller teslim gerçekleşinceye kadar avans niteliğini korumakta; arsa sahibinin arsa satış geliri ile yüklenicinin satış hasılatı, bağımsız bölümlerin teslimi ve buna bağlı olarak daha önce alınan avansların fatura nedeniyle oluşan cari hesaplarla mahsup edilmesi suretiyle kesinleşmektedir. Bu yaklaşım, hem sözleşmenin hukuki yapısı hem de dönemsellik ve tahakkuk ilkeleriyle uyumludur." },
       { type: "paragraph", text: "Enflasyon düzeltmesi uygulaması bakımından ise, 31.12.2023 tarihli bilançonun düzeltilmesi sonucunda 440-Alınan Avanslar hesabına ilişkin oluşan enflasyon düzeltmesi farklarının, bağımsız bölümlerin teslimi sonrasında avans hesaplarının kapatılması sırasında muhasebe tekniği gereği gelir hesaplarına aktarılması doğal bir sonuçtur. Bununla birlikte, söz konusu tutarın 2023 yılı enflasyon düzeltmesinden kaynaklanan kısmı, 213 sayılı Vergi Usul Kanununun Geçici 33 üncü maddesi uyarınca daha önce vergi matrahının tespitinde dikkate alınmadığından, teslim sonrasında yalnızca muhasebe kayıtlarının gereği olarak gelir hesaplarına intikal etmesi bu tutarın ayrıca vergilendirilmesini gerektirmemektedir. Nitekim bu yaklaşım, Gelir İdaresi Başkanlığının 20.02.2024 tarih ve VUK Sirküleri/165'inde alınan avanslara ilişkin yapılan açıklamalarla da açıkça benimsenmiştir. Bu nedenle, ticari bilanço kârına dahil edilen söz konusu tutarın kurumlar vergisi beyannamesinde \"Diğer İndirimler\" kapsamında mali kârdan indirilmesi gerekmektedir." },
+    ],
+  },
+  {
+    slug: "yeniden-degerleme-artis-fonunun-sermayeye-ilavesinde-523-hesabi",
+    title: "Yeniden Değerleme Artış Fonunun Sermayeye İlavesinde, İştirak Eden Şirket 523 – İştirakler Yeniden Değerleme Artışları Hesabını Kullanmalı mı?",
+    author: "Ali Pınar",
+    authorTitle: "Yönetici",
+    date: "2026",
+    excerpt: "VUK mükerrer 298/Ç kapsamında yeniden değerleme artış fonunun sermayeye ilavesiyle iştirak eden şirkete verilen bedelsiz payların 242 – İştirakler / 523 hesaplarında izlenip izlenmeyeceği; eski yeniden değerleme sistemi, KVK Genel Tebliği ve Tekdüzen Hesap Planı birlikte değerlendirilerek incelenmektedir.",
+    content: [
+      { type: "heading", text: "Giriş" },
+      { type: "paragraph", text: "2025 yılında yürürlüğe giren düzenlemeler kapsamında, 213 sayılı Vergi Usul Kanununun Geçici 37'nci maddesi ile enflasyon düzeltmesi hükümlerinin uygulanması 2025, 2026 ve 2027 hesap dönemleri için ertelenmiş, buna paralel olarak VUK mükerrer 298/Ç maddesi kapsamında yeniden değerleme uygulamasına imkân sağlanmıştır." },
+      { type: "paragraph", text: "Bu gelişme, bilanço esasına göre defter tutan mükelleflerin amortismana tabi iktisadi kıymetleri ile bunlara ait amortismanları yeniden değerlemelerine ve buna bağlı olarak oluşan değer artış fonlarını özkaynaklarında izlemelerine olanak vermiştir." },
+      { type: "paragraph", text: "Özellikle yeniden değerleme artış fonunun sermayeye ilavesi sonucunda iştirak eden şirkete verilen bedelsiz payların, iştirak eden şirket tarafından 242 – İştirakler / 245 Bağlı Ortaklıklar hesabında izlenip izlenmeyeceği ve buna karşılık 523 – İştirakler Yeniden Değerleme Artışları hesabının kullanılıp kullanılamayacağı hususu önem taşımaktadır." },
+      { type: "paragraph", text: "Bu yazıda konu; 31.12.2003 tarihine kadar yürürlükte bulunan ve 5024 sayılı Kanun ile değiştirilen 213 sayılı Vergi Usul Kanunu'nun Mükerrer 298 inci maddesinde yer alan eski yeniden değerleme sistemi, sonrasında yürürlüğe giren enflasyon düzeltmesi sistemi ile günümüzde uygulanmakta olan VUK mükerrer 298/Ç hükmü, 1 Seri No.lu Kurumlar Vergisi Genel Tebliği'nin açıklamaları ve Tekdüzen Hesap Planı hükümleri birlikte değerlendirilmek suretiyle incelenmiştir." },
+
+      { type: "subheading", text: "Örnek Olay" },
+      { type: "paragraph", text: "(B) işletmesi, VUK mükerrer 298/Ç kapsamında 2025 yılında yaptığı yeniden değerleme sonucunda oluşan değer artış fonunu 30.09.2026 tarihinde sermayesine ilave etmiştir." },
+      { type: "paragraph", text: "(B) işletmesinin %50 ortağı olan (A) işletmesine sermaye artırımı nedeniyle bedelsiz pay verilmiştir." },
+      { type: "paragraph", text: "Bu durumda aşağıdaki muhasebe kaydının yapılıp yapılmayacağı tartışma konusu olmaktadır:" },
+      { type: "entry", lines: [
+        { account: "242 İştirakler", side: "debit", amount: "XXX" },
+        { account: "523 İştirakler Yeniden Değerleme Artışları", side: "credit", amount: "XXX" },
+      ] },
+
+      { type: "heading", text: "Eski Yeniden Değerleme Sistemi" },
+      { type: "paragraph", text: "31.12.2003 tarihine kadar yürürlükte bulunan ve 5024 sayılı Kanun ile değiştirilen 213 sayılı Vergi Usul Kanunu'nun Mükerrer 298 inci maddesinde yer alan eski yeniden değerleme, yeniden değerleme artış fonunun sermayeye ilavesi sonucunda iştirak eden şirkete verilen bedelsiz payların açısından özel bir kanuni hükme yer verilmişti." },
+      { type: "paragraph", text: "Kanun hükmüne göre;" },
+      { type: "quote", text: "\"...Değerleme yapılan kuruma iştirak eden işletmelerin aktifinde bu nedenle meydana gelen artışlar ise pasifte özel bir karşılık hesabında gösterilir ve bu karşılık sermayenin cüzü addolunur.\"" },
+      { type: "paragraph", text: "Bu düzenleme uyarınca; iştirak eden işletmenin aktifinde artış meydana gelmekte, iştirak maliyeti artmakta, buna karşılık pasifte özel bir karşılık 523 İştirakler Yeniden Değerleme Artışları hesabı oluşturulmakta, oluşturulan karşılık sermayenin bir unsuru kabul edilmekteydi." },
+      { type: "paragraph", text: "Dolayısıyla eski yeniden değerleme rejiminde iştirak eden şirket nezdindeki muhasebeleştirme biçimi doğrudan kanun hükmüyle düzenlenmiş bulunuyordu." },
+
+      { type: "heading", text: "Tekdüzen Hesap Planındaki 523 Hesabının İşleyişi" },
+      { type: "paragraph", text: "Tekdüzen Hesap Planında yer alan 523 – İştirakler Yeniden Değerleme Artışları hesabının açıklaması incelendiğinde, söz konusu hesabın yukarıda belirtilen sistematiğe uygun olarak oluşturulduğu görülmektedir." },
+      { type: "paragraph", text: "Hesabın açıklamasında;" },
+      { type: "quote", text: "\"İşletmenin iştirakleri ile bağlı ortaklıkları bünyesinde yapılan yeniden değerleme dolayısıyla oluşan değer artışının sermayeye eklenmesi sonucunda, bu sermayeden işletmeye isabet eden kısmı gösterir.\"" },
+      { type: "paragraph", text: "denilmektedir." },
+      { type: "paragraph", text: "Hesabın işleyişinde ise bedelsiz verilen payların; 242 – İştirakler veya 245 – Bağlı Ortaklıklar hesabının borcuna, 523 – İştirakler Yeniden Değerleme Artışları hesabının alacağına, kaydedilmesi öngörülmektedir." },
+      { type: "paragraph", text: "Bu yönüyle 523 hesabının işleyişi, eski VUK mükerrer 298 hükmünde yer alan iştirak eden işletmenin aktifinde artış meydana gelmesi ve buna karşılık pasifte özel bir karşılık oluşturulması sistematiği ile örtüşmektedir." },
+
+      { type: "heading", text: "VUK Mükerrer 298/Ç Düzenlemesi" },
+      { type: "paragraph", text: "Günümüzde yürürlükte bulunan VUK mükerrer 298/Ç maddesinde ise farklı bir yaklaşım benimsenmiştir." },
+      { type: "paragraph", text: "Maddenin altıncı fıkrasında;" },
+      { type: "quote", text: "\"...Sermayeye eklenen değer artışları, ortaklar tarafından işletmeye ilave edilmiş kıymetler olarak kabul edilir. Bu işlemler kâr dağıtımı sayılmaz.\"" },
+      { type: "paragraph", text: "hükmüne yer verilmiştir." },
+      { type: "paragraph", text: "Ancak eski yeniden değerleme sisteminde yer alan; iştirak eden işletmenin aktifinde artış meydana gelmesi, pasifte özel karşılık hesabı oluşturulması, iştirak maliyetinin artırılması, yönündeki düzenlemeler yeni kanun metnine taşınmamıştır." },
+      { type: "paragraph", text: "Başka bir ifadeyle, eski sistemde iştirak eden işletmenin muhasebeleştirme biçimini doğrudan düzenleyen özel hüküm, güncel yeniden değerleme rejiminde yer almamaktadır." },
+
+      { type: "heading", text: "KVK Genel Tebliği'nin Yaklaşımı" },
+      { type: "paragraph", text: "1 Seri No.lu Kurumlar Vergisi Genel Tebliği'nin 5.6.2.4.3 bölümünde sermaye yedeklerinden yapılan sermaye artırımlarında verilen bedelsiz hisse senetlerinin durumu açıklanmıştır." },
+      { type: "paragraph", text: "Tebliğe göre;" },
+      { type: "quote", text: "\"Sermaye yedekleri kullanılmak suretiyle sermaye artırımında bulunulması neticesinde sermaye artırımı nedeniyle verilecek bedelsiz hisse senetlerinin, bu şirkete iştirak edenler yönünden aktif ve pasiflerinde bir artışa neden olmaması gerekir. Dolayısıyla, bedelsiz hisse senetleri nedeniyle aktifte tutulan hisselerin sadece adedi değişecek, bedelinde değişme olmayacaktır.\"" },
+      { type: "paragraph", text: "Yeniden değerleme değer artış fonu da özkaynaklar içerisinde bir sermaye yedeği niteliğindedir." },
+      { type: "paragraph", text: "Dolayısıyla Tebliğ, sermaye yedeklerinden kaynaklanan bedelsiz payların iştirak eden kurum nezdinde aktif ve pasifte artış meydana getirmemesi gerektiğini açıkça ortaya koymaktadır." },
+
+      { type: "heading", text: "Değerlendirme" },
+      { type: "paragraph", text: "523 – İştirakler Yeniden Değerleme Artışları hesabının mevcut işleyişi ile eski VUK mükerrer 298 hükmü arasında açık bir paralellik bulunmaktadır." },
+      { type: "paragraph", text: "Nitekim eski düzenleme iştirak eden işletmenin aktifinde meydana gelen artışın pasifte özel bir karşılık hesabında izlenmesini öngörmekteydi. Tekdüzen Hesap Planındaki 523 numaralı hesabın işleyişi de aynı mantığa dayanmaktadır." },
+      { type: "paragraph", text: "Buna karşılık günümüzde yürürlükte bulunan VUK mükerrer 298/Ç düzenlemesinde iştirak eden işletmenin aktifinde artış meydana geleceğine veya pasifte özel bir karşılık hesabı oluşturulacağına ilişkin herhangi bir hüküm bulunmamaktadır." },
+      { type: "paragraph", text: "Ayrıca 1 Seri No.lu Kurumlar Vergisi Genel Tebliği de sermaye yedeklerinden karşılanan bedelsiz payların iştirak eden kurumun aktif ve pasifinde artış meydana getirmemesi gerektiğini belirtmektedir." },
+      { type: "paragraph", text: "Bu durumda önemli bir hukuki tartışma ortaya çıkmaktadır:" },
+      { type: "subheading", text: "1992 yılında oluşturulan Tekdüzen Hesap Planı'ndaki 523 – İştirakler Yeniden Değerleme Artışları hesabının işleyişi, dayanağını oluşturan eski yeniden değerleme sistemine ilişkin özel hüküm yeni VUK mükerrer 298/Ç düzenlemesine taşınmamışken, günümüz vergi hukuku kuralları çerçevesinde aynen uygulanabilir mi?" },
+
+      { type: "heading", text: "Sonuç" },
+      { type: "paragraph", text: "523 – İştirakler Yeniden Değerleme Artışları hesabının işleyişi, eski yeniden değerleme sisteminde yer alan ve iştirak eden işletmenin aktifinde artış meydana gelmesini öngören düzenlemelerle uyumludur." },
+      { type: "paragraph", text: "Ancak söz konusu düzenlemeler yeni VUK mükerrer 298/Ç sistemine taşınmamıştır." },
+      { type: "paragraph", text: "Öte yandan 1 Seri No.lu Kurumlar Vergisi Genel Tebliği'nin 5.6.2.4.3 bölümünde, sermaye yedeklerinden kaynaklanan bedelsiz payların iştirak eden kurumun aktif ve pasifinde artış meydana getirmemesi gerektiği açıkça belirtilmiştir." },
+      { type: "paragraph", text: "Bu nedenle, VUK mükerrer 298/Ç kapsamında yeniden değerleme artış fonunun sermayeye ilavesi sonucunda iştirak eden şirket tarafından 242 – İştirakler hesabının borçlandırılması ve 523 – İştirakler Yeniden Değerleme Artışları hesabının alacaklandırılması suretiyle muhasebe kaydı yapılmamalıdır." },
+      { type: "paragraph", text: "Muhasebe Sistemi Uygulama Genel Tebliği'nde yer alan hesap planı düzenlemeleri ile güncel vergi mevzuatı hükümlerinin birlikte değerlendirilmesi ve aralarındaki farklılıkların göz önünde bulundurulması gerekmektedir." },
     ],
   },
 ];

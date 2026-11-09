@@ -6,6 +6,14 @@
 
 ## Durum: Canlı site üzerinde küçük içerik/düzen güncellemeleri devam ediyor (2026-07-11)
 
+**2026-11-09: Ali Pınar'ın 2. makalesi eklendi** — "Yeniden Değerleme Artış Fonunun
+Sermayeye İlavesinde, İştirak Eden Şirket 523 Hesabını Kullanmalı mı?" (docx'ten,
+`src/data/articles.ts` sonuna). Önceki Ali Pınar makalesi gibi sadece `/yayinlarimiz`'de
+(ana sayfa ilk 3'ü gösteriyor). Makale renderer'ına (`yayinlarimiz/[slug]/page.tsx`) iki
+yeni blok tipi eklendi: `quote` (gold sol çizgili italik alıntı) ve `entry` (Hesap/Borç/
+Alacak muhasebe kaydı tablosu). Not: makale grid'i masaüstünde 2 sütun, 5. kart tek kalıyor.
+Proje klasörü artık `~/Desktop/MSO WEBSITE/mso-website`.
+
 **2026-07-11: Deployment sonrası kullanıcı geri bildirimleriyle bir dizi küçük
 güncelleme yapıldı, hepsi commit/push edilip production'da doğrulandı:**
 - Ekibimiz: "Beyza Arslan" → "Beyza Aslan" isim düzeltmesi; Ceyda Güven

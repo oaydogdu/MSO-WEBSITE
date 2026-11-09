@@ -74,6 +74,41 @@ export default async function MakalePage({ params }: { params: Promise<{ slug: s
                   </ul>
                 );
               }
+              if (block.type === "quote") {
+                return (
+                  <blockquote
+                    key={i}
+                    className="italic border-l-2 pl-5 my-6 text-gray-700"
+                    style={{ borderColor: "var(--gold)" }}
+                  >
+                    {block.text}
+                  </blockquote>
+                );
+              }
+              if (block.type === "entry") {
+                return (
+                  <div key={i} className="my-6 overflow-x-auto">
+                    <table className="w-full text-base border-y" style={{ borderColor: "var(--gold)" }}>
+                      <thead>
+                        <tr className="text-xs font-bold tracking-widest uppercase" style={{ color: "var(--navy)" }}>
+                          <th className="text-left py-2 pr-4">Hesap</th>
+                          <th className="text-right py-2 px-3 w-20">Borç</th>
+                          <th className="text-right py-2 pl-3 w-20">Alacak</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {block.lines.map((line, j) => (
+                          <tr key={j} className="border-t border-gray-200">
+                            <td className={`py-2 pr-4 ${line.side === "credit" ? "pl-8" : ""}`}>{line.account}</td>
+                            <td className="text-right py-2 px-3 tabular-nums">{line.side === "debit" ? line.amount : ""}</td>
+                            <td className="text-right py-2 pl-3 tabular-nums">{line.side === "credit" ? line.amount : ""}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                );
+              }
               return (
                 <p key={i} className="mb-5">
                   {block.text}
