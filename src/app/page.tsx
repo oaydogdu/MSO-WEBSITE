@@ -19,7 +19,7 @@ const services = [
 const stats = [
   { value: "1971", label: "Kuruluş Yılı" },
   { value: "50+", label: "Yıllık Deneyim" },
-  { value: "11", label: "Uzman Kadro" },
+  { value: "10", label: "Uzman Kadro" },
   { value: "29+", label: "Hizmet Sektörü" },
 ];
 
@@ -217,7 +217,7 @@ export default function HomePage() {
                 {[
                   { icon: Award, title: "TÜRMOB Üyesi", desc: "Serbest Muhasebeciler Mali Müşavirler Odası onaylı" },
                   { icon: Shield, title: "Bağımsız Denetçi", desc: "Her iki ortağımız denetim yetkisine sahip" },
-                  { icon: Users, title: "11 Uzman", desc: "Alanında deneyimli profesyonel kadro" },
+                  { icon: Users, title: "10 Uzman", desc: "Alanında deneyimli profesyonel kadro" },
                   { icon: MapPin, title: "Türkiye Geneli", desc: "Tüm Türkiye'de kesintisiz hizmet" },
                 ].map((item) => (
                   <div key={item.title} className="p-4 lg:p-7" style={{ border: "1px solid rgba(201,168,76,0.12)", background: "rgba(255,255,255,0.02)" }}>

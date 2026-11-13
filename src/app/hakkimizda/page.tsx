@@ -40,14 +40,14 @@ export default function HakkimizdaPage() {
                 Yarım asrı aşan deneyimimiz boyunca birçok işletmenin yanında yer alarak onların mali sorumluluklarını yasalar çerçevesinde en doğru şekilde yerine getirmelerine destek olduk.
               </p>
               <p className="text-gray-500 leading-relaxed">
-                Bugün MSO Denetim ve Serbest Muhasebeci Mali Müşavirlik Anonim Şirketi çatısı altında, 11 kişilik uzman kadromuz ve AKSİS Uluslararası Bağımsız Denetim A.Ş. ortaklığımızla Türkiye genelinde 29&apos;dan fazla sektörde hizmet vermeye devam ediyoruz.
+                Bugün MSO Denetim ve Serbest Muhasebeci Mali Müşavirlik Anonim Şirketi çatısı altında, 10 kişilik uzman kadromuz ve AKSİS Uluslararası Bağımsız Denetim A.Ş. ortaklığımızla Türkiye genelinde 29&apos;dan fazla sektörde hizmet vermeye devam ediyoruz.
               </p>
             </AnimatedSection>
             <AnimatedSection direction="right" className="grid grid-cols-2 gap-4 md:gap-6">
               {[
                 { value: "1971", label: "Kuruluş Yılı", icon: Award },
                 { value: "50+", label: "Yıl Deneyim", icon: Shield },
-                { value: "11", label: "Uzman Çalışan", icon: Users },
+                { value: "10", label: "Uzman Çalışan", icon: Users },
                 { value: "29+", label: "Hizmet Sektörü", icon: MapPin },
               ].map((item) => (
                 <div key={item.label} className="rounded-2xl p-5 md:p-8 text-center" style={{ background: "var(--navy)" }}>

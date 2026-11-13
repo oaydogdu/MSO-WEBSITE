@@ -33,9 +33,8 @@ const team = [
   { name: "Ali Kemal Özdemir", title: "Muhasebe Uzmanı", photo: "/team/kemal.jpg" },
   { name: "Mustafa Zor", title: "Serbest Muhasebeci Mali Müşavir", photo: "/team/mustafa.jpg" },
   { name: "Ceyda Güven", title: "Muhasebe Sorumlusu", photo: "/team/ceyda.jpg", photoScale: 1.08 },
-  { name: "Beyza Aslan", title: "Muhasebe Sorumlusu", photo: "/team/beyza.jpg" },
   { name: "Tamer Turan", title: "Muhasebe Sorumlusu", photo: "/team/tamer.jpg" },
-  { name: "Mert Aydoğdu", title: "IT Sorumlusu", photo: "/team/mert.jpg" },
+  { name: "İsmail Arslan", title: "Muhasebe Sorumlusu", photo: "/team/ismail.jpg" },
   { name: "Oğuzhan Aydoğdu", title: "Operasyon Direktörü", photo: "/team/oguzhan.jpg" },
 ];
 
@@ -56,7 +55,7 @@ export default function EkibimizPage() {
             <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>Profesyonel Kadromuz</p>
             <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6">Ekibimiz</h1>
             <p className="text-white/60 text-xl max-w-2xl leading-relaxed">
-              11 kişilik uzman kadromuz ile işletmenizin her ihtiyacında profesyonel destek sunuyoruz.
+              10 kişilik uzman kadromuz ile işletmenizin her ihtiyacında profesyonel destek sunuyoruz.
             </p>
           </AnimatedSection>
         </div>

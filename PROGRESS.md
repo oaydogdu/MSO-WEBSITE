@@ -6,6 +6,13 @@
 
 ## Durum: Canlı site üzerinde küçük içerik/düzen güncellemeleri devam ediyor (2026-07-11)
 
+**2026-11-13: Beyza Aslan ve Mert Aydoğdu ekipten çıkarıldı** (işten ayrıldılar) —
+Aynı gün **İsmail Arslan** eklendi (Muhasebe Sorumlusu — unvan kullanıcıdan teyit edilmedi,
+varsayılan; `public/team/ismail.jpg`, Oğuzhan'dan önce). Sonuç: team 7 kişi, uzman sayısı 11→10
+(ana sayfa stat + "10 Uzman", hakkımızda metni + stat, ekibimiz giriş metni, bilgiler.md).
+Beyza/Mert fotoğraf dosyaları public/team'de duruyor (kullanılmıyor).
+TV videosu (`../mso-tv-video`) da aynı şekilde güncellendi.
+
 **2026-11-09: Ali Pınar'ın 2. makalesi eklendi** — "Yeniden Değerleme Artış Fonunun
 Sermayeye İlavesinde, İştirak Eden Şirket 523 Hesabını Kullanmalı mı?" (docx'ten,
 `src/data/articles.ts` sonuna). Önceki Ali Pınar makalesi gibi sadece `/yayinlarimiz`'de

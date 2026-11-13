@@ -151,9 +151,8 @@ Bu sayfa Mehmet Sami Özeren'i onore etmek amacıyla oluşturulacak. İçerik:
 - **Ali Pınar** — Serbest Muhasebeci Mali Müşavir & Bağımsız Denetçi
 - **Ali Kemal Özdemir** — Muhasebe Uzmanı
 - **Ceyda Güven** — Muhasebe Sorumlusu
-- **Beyza Arslan** — Muhasebe Sorumlusu
 - **Tamer Turan** — Muhasebe Sorumlusu
-- **Mert Aydoğdu** — Muhasebe Sorumlusu
+- **İsmail Arslan** — Muhasebe Sorumlusu
 - **Oğuzhan Aydoğdu** — Operasyon Direktörü
 
 ---
@@ -161,7 +160,7 @@ Bu sayfa Mehmet Sami Özeren'i onore etmek amacıyla oluşturulacak. İçerik:
 ## 4. Rakamlar & Başarılar
 
 - **1971'den Bu Yana** — 50+ yıllık deneyim
-- **11 Uzman** — Uzman kadro
+- **10 Uzman** — Uzman kadro
 - **29+ Sektör** — Hizmet verilen sektör sayısı
 - **2 Bağımsız Denetçi** — Ortak düzeyinde denetim uzmanlığı
 - **Yüzlerce Mutlu Müşteri** — Muğlak ama etkili ifade
